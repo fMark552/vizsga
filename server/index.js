@@ -12,6 +12,9 @@ const db = mysql.createConnection({
   database: 'vizsga',
 })
 
+//Express middleware -> json file-ok küldéséhez
+app.use(express.json())
+
 app.get('/', (req, res) => {
   res.json('aha')
 })
@@ -19,6 +22,16 @@ app.get('/', (req, res) => {
 app.get('/home', (req, res) => {
   const q = 'SELECT * FROM blog'
   db.query(q, (err, data) => {
+    if (err) return res.json(err)
+    return res.json(data)
+  })
+})
+
+app.post('/home', (req, res) => {
+  const q = 'INSERT INTO blog (`text`) VALUES (?)'
+  const value = [req.body.text]
+
+  db.query(q, [value], (err, data) => {
     if (err) return res.json(err)
     return res.json(data)
   })
