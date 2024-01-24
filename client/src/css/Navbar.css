@@ -1,0 +1,38 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(37, 37, 37);
+  padding: 10px;
+  color: white;
+}
+
+.left_section ul {
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+}
+
+.left_section li {
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.center_section img {
+  max-width: 100px;
+}
+
+.right_section ul {
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+}
+
+.right_section li {
+  margin-right: 15px;
+  cursor: pointer;
+  font-size: 30px;
+}
