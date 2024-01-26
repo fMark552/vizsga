@@ -1,20 +1,17 @@
 .navbar {
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 60px;
   align-items: center;
   background-color: black;
   color: white;
-  position: sticky;
-  top: 0px;
-  width: 100%;
-  height: 70px;
   z-index: 1000;
 }
 
 .left_section ul {
   list-style-type: none;
   margin: 0;
-  display: flex;
 }
 
 .left_section li {
@@ -30,7 +27,6 @@
 .right_section ul {
   list-style-type: none;
   margin: 0;
-  display: flex;
 }
 
 .right_section li {

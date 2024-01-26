@@ -1,15 +1,29 @@
-.card {
+.blog_text {
   padding: 25px;
   border: none;
+  border-radius: 0px;
   width: 66%;
   margin: 20px;
   float: right;
-  margin-top: 100px;
-  overflow: hidden;
+  background-color: whitesmoke;
+  border: 2px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
-.thoughts_24 {
+.like_button {
+  margin: 10px;
+}
+
+.dislike_button {
+  margin: 10px;
+}
+
+.comment_button {
+  margin: 10px;
+}
+
+/* .thoughts_24 {
   float: right;
   margin-top: 100px;
   color: black;
-}
+} */
