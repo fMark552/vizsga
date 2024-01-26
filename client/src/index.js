@@ -4,12 +4,16 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Sidebar from './components/Sidebar'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <Navbar />
+    <Sidebar />
     <App />
+    <Footer />
   </React.StrictMode>
 )
 

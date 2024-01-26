@@ -1,0 +1,14 @@
+.sidebar {
+  width: 20%;
+  position: fixed;
+  left: 0;
+  color: black;
+  height: 100%;
+  text-align: center;
+}
+
+.sticky_sidebar {
+  background-color: whitesmoke;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}

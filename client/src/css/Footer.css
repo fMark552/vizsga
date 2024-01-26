@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background-color: black;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.left_section_footer ul,
+.right_section_footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.left_section_footer li,
+.right_section_footer li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.center_section_footer {
+  margin: 0;
+}

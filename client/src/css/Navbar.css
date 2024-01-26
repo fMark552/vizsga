@@ -2,14 +2,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(37, 37, 37);
-  padding: 10px;
+  background-color: black;
   color: white;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  height: 70px;
+  z-index: 1000;
 }
 
 .left_section ul {
   list-style-type: none;
-  padding: 10px;
   margin: 0;
   display: flex;
 }
@@ -26,13 +29,12 @@
 
 .right_section ul {
   list-style-type: none;
-  padding: 10px;
   margin: 0;
   display: flex;
 }
 
 .right_section li {
-  margin-right: 15px;
+  margin-right: 50px;
   cursor: pointer;
   font-size: 30px;
 }

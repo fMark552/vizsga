@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import '../css/Home.css'
+
 const Home = () => {
   const [blog, setBlog] = useState([])
 
@@ -17,8 +19,9 @@ const Home = () => {
 
   return (
     <div>
+      {/* <h1 className="thoughts_24">Thoughts of today</h1> */}
       {blog.map((blog) => (
-        <div key={blog.id} className="blog_text">
+        <div key={blog.id} className="blog_text card">
           {blog.text}
         </div>
       ))}
