@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 app.get('/home', (req, res) => {
   const q = 'SELECT * FROM blog'
   db.query(q, (err, data) => {
-    if (err) return res.json(err)
+    if (err) return res.send(err)
     return res.json(data)
   })
 })
@@ -34,7 +34,17 @@ app.post('/home', (req, res) => {
   const value = [req.body.text]
 
   db.query(q, [value], (err, data) => {
-    if (err) return res.json(err)
+    if (err) return res.send(err)
+    return res.json(data)
+  })
+})
+
+app.delete('/home/:id', (req, res) => {
+  const blogId = req.params.id
+  const q = 'DELETE FROM blog WHERE id = ?'
+
+  db.query(q, [blogId], (err, data) => {
+    if (err) return res.send(err)
     return res.json(data)
   })
 })

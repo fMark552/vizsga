@@ -4,12 +4,7 @@ import '../css/Footer.css'
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="left_section_footer">
-        <ul>
-          <li>valami</li>
-          <li>valami</li>
-        </ul>
-      </div>
+      <div className="left_section_footer"></div>
 
       <div className="center_section_footer">
         <ul>
@@ -17,12 +12,7 @@ const Footer = () => {
         </ul>
       </div>
 
-      <div className="left_section_footer">
-        <ul>
-          <li>valami</li>
-          <li>valami</li>
-        </ul>
-      </div>
+      <div className="left_section_footer"></div>
     </div>
   )
 }

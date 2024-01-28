@@ -49,6 +49,15 @@ const Home = () => {
     fetchBlog()
   }, [])
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:1997/home/${id}`)
+      window.location.reload()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <div>
       <div className="sidebar">
@@ -109,27 +118,30 @@ const Home = () => {
         </div>
       </div>
       <div className="thoughts_24">
-        <h1>Aha lorem ipsum</h1>
+        <h1 className="title">Fake twitter</h1>
       </div>
-      {blog.map((blog) => (
-        <div key={blog.id} className="blog_text">
-          User
-          <hr />
-          {blog.text}
-          <hr />
-          2024.01.26 16:28
-          <hr />
-          <Button variant="outline-secondary" className="like_button">
-            <span>98</span> <FontAwesomeIcon icon={faHeart} />
-          </Button>
-          <Button variant="outline-secondary" className="dislike_button">
-            <span>5</span> <FontAwesomeIcon icon={faHeartCrack} />
-          </Button>
-          <Button variant="outline-secondary" className="comment_button">
-            <span>23</span> <FontAwesomeIcon icon={faComment} />
-          </Button>
-        </div>
-      ))}
+      <div>
+        {blog.map((blog) => (
+          <div key={blog.id} className="blog_text">
+            User
+            <hr />
+            <p>{blog.text}</p>
+            <hr />
+            2024.01.26 16:28
+            <hr />
+            <Button variant="outline-secondary" className="like_button">
+              <span>98</span> <FontAwesomeIcon icon={faHeart} />
+            </Button>
+            <Button variant="outline-secondary" className="dislike_button">
+              <span>5</span> <FontAwesomeIcon icon={faHeartCrack} />
+            </Button>
+            <Button variant="outline-secondary" className="comment_button">
+              <span>23</span> <FontAwesomeIcon icon={faComment} />
+            </Button>
+            <button onClick={() => handleDelete(blog.id)}>Delete</button>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
