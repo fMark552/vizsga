@@ -12,6 +12,7 @@ import {
   faHeart,
   faHeartCrack,
 } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   //Sidebar
@@ -139,6 +140,9 @@ const Home = () => {
               <span>23</span> <FontAwesomeIcon icon={faComment} />
             </Button>
             <button onClick={() => handleDelete(blog.id)}>Delete</button>
+            <button>
+              <Link to={`/update/${blog.id}`}>Rewrite</Link>
+            </button>
           </div>
         ))}
       </div>

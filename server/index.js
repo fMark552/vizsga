@@ -49,6 +49,18 @@ app.delete('/home/:id', (req, res) => {
   })
 })
 
+app.put('/home/:id', (req, res) => {
+  const blogId = req.params.id
+  const q = 'UPDATE blog SET `text` = ? WHERE id = ? '
+
+  const value = [req.body.text]
+
+  db.query(q, [...value, blogId], (err, data) => {
+    if (err) return res.send(err)
+    return res.json(data)
+  })
+})
+
 app.listen(port, () => {
   console.log(`The server is running on port ${port}`)
 })
