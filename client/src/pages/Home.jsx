@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../css/Home.css'
-import '../index.css'
 import Button from 'react-bootstrap/esm/Button'
 import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
@@ -139,10 +138,16 @@ const Home = () => {
             <Button variant="outline-secondary" className="comment_button">
               <span>23</span> <FontAwesomeIcon icon={faComment} />
             </Button>
-            <button onClick={() => handleDelete(blog.id)}>Delete</button>
-            <button>
+            <Button
+              onClick={() => handleDelete(blog.id)}
+              variant="outline-secondary"
+              className="delete_button"
+            >
+              Delete
+            </Button>
+            <Button variant="outline-secondary" className="update_button">
               <Link to={`/update/${blog.id}`}>Rewrite</Link>
-            </button>
+            </Button>
           </div>
         ))}
       </div>

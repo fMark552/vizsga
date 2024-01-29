@@ -1,9 +1,8 @@
 .navbar {
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   height: 60px;
-  align-items: center;
   background-color: black;
   color: white;
   z-index: 1000;

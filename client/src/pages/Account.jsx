@@ -1,5 +1,4 @@
 import React from 'react'
-import '../index.css'
 import Button from 'react-bootstrap/esm/Button'
 import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'

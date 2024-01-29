@@ -22,6 +22,16 @@
   margin: 10px;
 }
 
+.delete_button {
+  margin: 10px;
+  float: right;
+}
+
+.update_button {
+  margin: 10px;
+  float: right;
+}
+
 .thoughts_24 {
   float: right;
   width: 66%;
