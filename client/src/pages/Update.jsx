@@ -21,7 +21,7 @@ const Update = () => {
     e.preventDefault()
     try {
       await axios.put(`http://localhost:1997/home/${blogId}`, newThought)
-      navigate('/')
+      navigate('/account')
     } catch (err) {
       console.log(err)
     }

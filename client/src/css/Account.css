@@ -1,11 +1,11 @@
-.big_div {
+.acc_big_div {
   text-align: center;
   background-color: whitesmoke;
 }
 
 /*Sidebar*/
 
-.sidebar {
+.acc_sidebar {
   width: 30%;
   position: fixed;
   left: 20px;
@@ -17,7 +17,7 @@
   border-right: 2px solid black;
 }
 
-.sticky_sidebar {
+.acc_sticky_sidebar {
   background-color: whitesmoke;
   padding: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
@@ -29,17 +29,98 @@
   width: 100%;
 }
 
-.logout_button {
-  border: 1px black solid;
-  color: black;
-  font-size: 20px;
+.acc_logout_button {
   width: 100%;
 }
 
-.search_bar {
+.acc_delete_user_button {
+  width: 100%;
+}
+
+.acc_search_bar {
   margin-top: 15px;
 }
 
-.sort_button {
+.user_stats_p {
+  font-size: 22px;
+}
+
+.acc_user_stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+/*Saját postok*/
+
+.acc_blog_text {
+  text-align: left;
+  padding: 25px;
+  border: none;
+  border-radius: 0px;
+  width: 66%;
+  margin: 20px;
+  float: right;
+  background-color: whitesmoke;
+  border: 2px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+.acc_like {
+  margin: 10px;
+  float: left;
+}
+
+.acc_dislike {
+  margin: 10px;
+  float: left;
+}
+
+.acc_comment {
+  margin: 10px;
+  float: left;
+}
+
+.acc_delete_button {
+  margin: 10px;
+  float: right;
+}
+
+.acc_update_button {
+  margin: 10px;
+  float: right;
+  text-decoration: none;
+}
+
+.acc_rewrite_button {
+  color: white;
+}
+
+.acc_thoughts_24 {
+  float: right;
+  width: 66%;
+  margin: 20px;
+  color: black;
+  text-align: center;
+  padding: 10px;
+}
+
+.acc_title {
+  margin-bottom: 0px;
+}
+
+/*Follow*/
+
+table {
   width: 100%;
+}
+
+.acc_followed_username {
+  float: left;
+}
+
+.acc_unfollow_button {
+  float: right;
+  /* margin-bottom: 10px; */
 }

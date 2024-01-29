@@ -7,11 +7,17 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
+  faCircleChevronLeft,
+  faCircleChevronRight,
+  faCircleUser,
   faComment,
   faHeart,
   faHeartCrack,
+  faHouse,
+  faUserPlus,
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import Logo from '../img/logo.png'
 
 const Home = () => {
   //Sidebar
@@ -49,31 +55,44 @@ const Home = () => {
     fetchBlog()
   }, [])
 
-  const handleDelete = async (id) => {
-    try {
-      await axios.delete(`http://localhost:1997/home/${id}`)
-      window.location.reload()
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
   return (
     <div>
+      <div className="navbar">
+        <div className="left_section">
+          <ul>
+            <li>
+              <Link className="navbar_link" to="/">
+                <FontAwesomeIcon icon={faHouse} />
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className="center_section">
+          <img src={Logo} height="25px" width="auto" alt="logo" />
+        </div>
+
+        <div className="right_section">
+          <ul className="account">
+            <li>
+              <Link className="navbar_link" to="/account">
+                <FontAwesomeIcon icon={faCircleUser} />
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div className="sidebar">
         <div className="sticky_sidebar">
-          <InputGroup className="mb-3 search_bar">
+          <InputGroup className="mb-3 home_search_bar">
             <Form.Control placeholder="Search..." />
-            <Button variant="outline-secondary" className="search_button">
+            <Button variant="secondary" className="home_search_button">
               Search
             </Button>
           </InputGroup>
           <hr />
           <Dropdown className="sort_button">
-            <Dropdown.Toggle
-              className="sort_button"
-              variant="outline-secondary"
-            >
+            <Dropdown.Toggle className="sort_button" variant="secondary">
               Sort
             </Dropdown.Toggle>
 
@@ -104,17 +123,13 @@ const Home = () => {
             </div>
             <p>56/300</p>
             <Button
-              variant="outline-secondary"
+              variant="primary"
               className="publish_button"
               onClick={handleClick}
             >
               Publish
             </Button>
           </div>
-          <hr />
-          <Button variant="outline-danger" className="logout_button">
-            Log out
-          </Button>
         </div>
       </div>
       <div className="thoughts_24">
@@ -123,34 +138,36 @@ const Home = () => {
       <div>
         {blog.map((blog) => (
           <div key={blog.id} className="blog_text">
-            User
+            <span>
+              <strong>Márk</strong>
+              <Button variant="none">
+                <FontAwesomeIcon icon={faUserPlus} />
+              </Button>
+            </span>
             <hr />
-            <p>{blog.text}</p>
+            <p>
+              <h5>{blog.text}</h5>
+            </p>
             <hr />
-            2024.01.26 16:28
+            <span className="timestamp">2024.01.26 16:28</span>
             <hr />
-            <Button variant="outline-secondary" className="like_button">
+            <Button variant="secondary" className="like_button">
               <span>98</span> <FontAwesomeIcon icon={faHeart} />
             </Button>
-            <Button variant="outline-secondary" className="dislike_button">
+            <Button variant="secondary" className="dislike_button">
               <span>5</span> <FontAwesomeIcon icon={faHeartCrack} />
             </Button>
-            <Button variant="outline-secondary" className="comment_button">
+            <Button variant="secondary" className="comment_button">
               <span>23</span> <FontAwesomeIcon icon={faComment} />
-            </Button>
-            <Button
-              onClick={() => handleDelete(blog.id)}
-              variant="outline-secondary"
-              className="delete_button"
-            >
-              Delete
-            </Button>
-            <Button variant="outline-secondary" className="update_button">
-              <Link to={`/update/${blog.id}`}>Rewrite</Link>
             </Button>
           </div>
         ))}
       </div>
+      {/* <div className="home_pagination">
+        <FontAwesomeIcon icon={faCircleChevronLeft} />
+        <span>1</span>
+        <FontAwesomeIcon icon={faCircleChevronRight} />
+      </div> */}
     </div>
   )
 }

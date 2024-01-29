@@ -22,16 +22,6 @@
   margin: 10px;
 }
 
-.delete_button {
-  margin: 10px;
-  float: right;
-}
-
-.update_button {
-  margin: 10px;
-  float: right;
-}
-
 .thoughts_24 {
   float: right;
   width: 66%;
@@ -88,7 +78,7 @@
   width: 100%;
 }
 
-.search_button {
+.home_search_button {
   color: black;
   font-size: 18px;
 }
@@ -100,10 +90,57 @@
   width: 100%;
 }
 
-.search_bar {
+.home_search_bar {
   margin-top: 15px;
 }
 
 .sort_button {
   width: 100%;
+}
+
+/*Navbar*/
+
+.navbar {
+  position: fixed;
+  top: 0px;
+  background-color: black;
+  color: white;
+  z-index: 1000;
+}
+
+.left_section ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.left_section li {
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.center_section img {
+  max-width: 100px;
+}
+
+.right_section ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.right_section li {
+  margin-right: 50px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.navbar_link {
+  color: white;
+}
+
+/*Pagination*/
+.home_pagination {
+  float: right;
+  position: fixed;
+  bottom: 100px;
 }
