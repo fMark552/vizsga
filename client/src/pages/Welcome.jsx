@@ -42,7 +42,6 @@ const Welcome = () => {
             <br />
             <button
               className="login_button"
-              variant="dark"
               type="submit"
               onClick={handleLogin}
             >

@@ -156,7 +156,10 @@ button {
 }
 
 .follow_button {
-  margin-left: 15px;
+  margin-left: 5px;
+  font-size: 15px;
+  border: none;
+  background-color: whitesmoke;
 }
 
 /*Pagination*/

@@ -1,4 +1,5 @@
 import {
+  faChevronDown,
   faCircleUser,
   faComment,
   faHeart,
@@ -116,6 +117,8 @@ const Account = () => {
                 </tr>
               </tbody>
             </table>
+            <hr />
+            <button className="all_follow">All follow</button>
             <hr />
             <button className="acc_logout_button rounded-0">Log out</button>
             <hr />
