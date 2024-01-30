@@ -69,57 +69,9 @@ const Account = () => {
       </div>
       <div className="acc_sidebar">
         <div className="acc_sticky_sidebar">
-          <div>
-            <div className="acc_user_stats">
-              <h4>
-                <span>98</span> <FontAwesomeIcon icon={faHeart} />
-              </h4>
-              <h4>
-                <span>5</span> <FontAwesomeIcon icon={faHeartCrack} />
-              </h4>
-              <h4>
-                <span>23</span> <FontAwesomeIcon icon={faComment} />
-              </h4>
-              <h4>
-                <span>13</span> <FontAwesomeIcon icon={faUserPlus} />
-              </h4>
-            </div>
-          </div>
+          <div></div>
           <hr />
           <div className="acc_followed">
-            <table>
-              <tbody>
-                <tr>
-                  <td className="acc_followed_username">
-                    <strong>User1</strong>
-                  </td>
-                  <td className="acc_unfollow_button">
-                    <button className="rounded-0">Unfollow</button>
-                  </td>
-                </tr>
-                <hr />
-                <tr>
-                  <td className="acc_followed_username">
-                    <strong>User2</strong>
-                  </td>
-                  <td className="acc_unfollow_button">
-                    <button className="rounded-0">Unfollow</button>
-                  </td>
-                </tr>
-                <hr />
-                <tr>
-                  <td className="acc_followed_username">
-                    <strong>User3</strong>
-                  </td>
-                  <td className="acc_unfollow_button">
-                    <button className="rounded-0">Unfollow</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <hr />
-            <button className="all_follow">All follow</button>
-            <hr />
             <button className="acc_logout_button rounded-0">Log out</button>
             <hr />
             <button className="acc_delete_user_button rounded-0">

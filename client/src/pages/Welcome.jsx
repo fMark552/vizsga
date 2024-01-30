@@ -19,35 +19,27 @@ const Welcome = () => {
       </div>
       <div className="login_form">
         <Container>
-          <Form>
-            <Form.Group>
-              <Form.Control
-                className="rounded-0 welcome_email"
-                placeholder="Email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Form.Group>
+          <form>
+            <input
+              className="welcome_email"
+              placeholder="Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <hr />
-            <Form.Group>
-              <Form.Control
-                className="rounded-0 welcome_password"
-                placeholder="Password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Form.Group>
-            <br />
-            <button
-              className="login_button"
-              type="submit"
-              onClick={handleLogin}
-            >
-              Login
-            </button>
-          </Form>
+            <input
+              className="welcome_password"
+              placeholder="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </form>
+          <br />
+          <button className="login_button" type="submit" onClick={handleLogin}>
+            Login
+          </button>
         </Container>
         <br />
         <div className="welcome_create_acc">

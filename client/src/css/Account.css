@@ -3,33 +3,7 @@
   background-color: whitesmoke;
 }
 
-button {
-  padding: 8px;
-}
-
 /*Sidebar*/
-
-.acc_sidebar {
-  width: 30%;
-  position: fixed;
-  left: 20px;
-  top: 60px;
-  color: black;
-  text-align: center;
-}
-
-.acc_sticky_sidebar {
-  background-color: whitesmoke;
-  padding: 15px;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 1); */
-  box-shadow: inset 0.8px 0.8px #000, 2px 2px #000;
-}
-
-.search_button {
-  color: black;
-  font-size: 18px;
-  width: 100%;
-}
 
 .acc_logout_button {
   width: 100%;
@@ -39,17 +13,6 @@ button {
 .acc_delete_user_button {
   width: 100%;
   font-size: 20px;
-}
-
-.user_stats_p {
-  font-size: 22px;
-}
-
-.acc_user_stats {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
 }
 
 /*Saját postok*/
@@ -116,25 +79,4 @@ button {
 
 .acc_title {
   margin-bottom: 0px;
-}
-
-/*Follow*/
-
-table {
-  width: 100%;
-}
-
-.acc_followed_username {
-  float: left;
-  font-size: 20px;
-}
-
-.acc_unfollow_button {
-  float: right;
-  font-size: 20px;
-}
-
-.all_follow {
-  width: 100%;
-  font-size: 20px;
 }

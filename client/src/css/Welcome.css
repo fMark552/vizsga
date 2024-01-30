@@ -1,6 +1,9 @@
 .login_button {
   width: 100%;
   font-size: 20px;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: white;
 }
 
 .welcome_text {
@@ -9,6 +12,20 @@
   width: 50%;
   float: left;
   text-align: center;
+}
+
+.welcome_email {
+  border-radius: 25px;
+  border: 1px solid black;
+  padding: 6px;
+  width: 100%;
+}
+
+.welcome_password {
+  border-radius: 25px;
+  border: 1px solid black;
+  padding: 6px;
+  width: 100%;
 }
 
 .login_form {
