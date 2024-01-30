@@ -11,7 +11,6 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import Button from 'react-bootstrap/esm/Button'
 import { Link } from 'react-router-dom'
 import '../css/Account.css'
 import Logo from '../img/logo.png'
@@ -69,8 +68,6 @@ const Account = () => {
       </div>
       <div className="acc_sidebar">
         <div className="acc_sticky_sidebar">
-          <h2>Márk</h2>
-          <hr />
           <div>
             <div className="acc_user_stats">
               <h4>
@@ -96,7 +93,7 @@ const Account = () => {
                     <strong>User1</strong>
                   </td>
                   <td className="acc_unfollow_button">
-                    <Button variant="outline-danger">Unfollow</Button>
+                    <button className="rounded-0">Unfollow</button>
                   </td>
                 </tr>
                 <hr />
@@ -105,7 +102,7 @@ const Account = () => {
                     <strong>User2</strong>
                   </td>
                   <td className="acc_unfollow_button">
-                    <Button variant="outline-danger">Unfollow</Button>
+                    <button className="rounded-0">Unfollow</button>
                   </td>
                 </tr>
                 <hr />
@@ -114,61 +111,54 @@ const Account = () => {
                     <strong>User3</strong>
                   </td>
                   <td className="acc_unfollow_button">
-                    <Button variant="outline-danger">Unfollow</Button>
+                    <button className="rounded-0">Unfollow</button>
                   </td>
                 </tr>
-                <hr />
               </tbody>
             </table>
             <hr />
-            <Button variant="danger" className="acc_logout_button">
-              Log out
-            </Button>
+            <button className="acc_logout_button rounded-0">Log out</button>
             <hr />
-            <Button variant="outline-danger" className="acc_delete_user_button">
-              Delete account
-            </Button>
+            <button className="acc_delete_user_button rounded-0">
+              Delete page
+            </button>
           </div>
         </div>
       </div>
       <div className="acc_thoughts_24">
-        <h1 className="acc_title">My account</h1>
+        <h1 className="acc_title">Your page</h1>
       </div>
       <div>
         {blog.map((blog) => (
           <div key={blog.id} className="acc_blog_text">
             <span>
-              <strong>Márk</strong>{' '}
-              <Button variant="none">
-                <FontAwesomeIcon icon={faUserPlus} />
-              </Button>
+              <strong>Márk</strong>
             </span>
             <hr />
             <h5>{blog.text}</h5>
             <hr />
             <span className="timestamp">2024.01.26 16:28</span>
             <hr />
-            <Button variant="secondary" className="acc_like">
+            <button className="acc_like rounded-0">
               <span>98</span> <FontAwesomeIcon icon={faHeart} />
-            </Button>
-            <Button variant="secondary" className="acc_dislike">
+            </button>
+            <button className="acc_dislike rounded-0">
               <span>5</span> <FontAwesomeIcon icon={faHeartCrack} />
-            </Button>
-            <Button variant="secondary" className="acc_comment">
+            </button>
+            <button className="acc_comment rounded-0">
               <span>23</span> <FontAwesomeIcon icon={faComment} />
-            </Button>
-            <Button
+            </button>
+            <button
               onClick={() => handleDelete(blog.id)}
-              variant="danger"
-              className="acc_delete_button"
+              className="acc_delete_button rounded-0"
             >
               <FontAwesomeIcon icon={faTrashCan} />
-            </Button>
-            <Button variant="secondary" className="acc_update_button">
+            </button>
+            <button className="acc_update_button rounded-0">
               <Link className="acc_rewrite_button" to={`/update/${blog.id}`}>
                 <FontAwesomeIcon icon={faPen} />
               </Link>
-            </Button>
+            </button>
           </div>
         ))}
       </div>

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../css/Home.css'
-import Button from 'react-bootstrap/esm/Button'
 import Form from 'react-bootstrap/Form'
 import InputGroup from 'react-bootstrap/InputGroup'
-import Dropdown from 'react-bootstrap/Dropdown'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faCircleChevronLeft,
@@ -14,6 +12,7 @@ import {
   faHeart,
   faHeartCrack,
   faHouse,
+  faMagnifyingGlass,
   faUserPlus,
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
@@ -56,7 +55,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div>
+    <div className="home_big_div">
       <div className="navbar">
         <div className="left_section">
           <ul>
@@ -85,30 +84,20 @@ const Home = () => {
       <div className="sidebar">
         <div className="sticky_sidebar">
           <InputGroup className="mb-3 home_search_bar">
-            <Form.Control placeholder="Search..." />
-            <Button variant="secondary" className="home_search_button">
-              Search
-            </Button>
+            <Form.Control placeholder="Search..." className="rounded-0" />
+            <button className="home_search_button rounded-0">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
           </InputGroup>
           <hr />
-          <Dropdown className="sort_button">
-            <Dropdown.Toggle className="sort_button" variant="secondary">
-              Sort
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Dropdown.Item className="sort_button">Newest</Dropdown.Item>
-              <Dropdown.Item className="sort_button">Oldest</Dropdown.Item>
-              <Dropdown.Item className="sort_button">Random</Dropdown.Item>
-              <Dropdown.Item className="sort_button">Most liked</Dropdown.Item>
-              <Dropdown.Item className="sort_button">
-                Most disliked
-              </Dropdown.Item>
-              <Dropdown.Item className="sort_button">
-                Most commented
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+          <select className="sort_dropdown">
+            <option value="random">Random</option>
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="liked">Most liked</option>
+            <option value="disliked">Most disliked</option>
+            <option value="commented">Most commented</option>
+          </select>
           <hr />
           <div className="new_thought">
             <div className="write_new_thought">
@@ -122,13 +111,9 @@ const Home = () => {
               />
             </div>
             <p>56/300</p>
-            <Button
-              variant="primary"
-              className="publish_button"
-              onClick={handleClick}
-            >
+            <button className="publish_button rounded-0" onClick={handleClick}>
               Publish
-            </Button>
+            </button>
           </div>
         </div>
       </div>
@@ -140,9 +125,9 @@ const Home = () => {
           <div key={blog.id} className="blog_text">
             <span>
               <strong>Márk</strong>
-              <Button variant="none">
+              <button className="follow_button rounded-0">
                 <FontAwesomeIcon icon={faUserPlus} />
-              </Button>
+              </button>
             </span>
             <hr />
             <p>
@@ -151,15 +136,15 @@ const Home = () => {
             <hr />
             <span className="timestamp">2024.01.26 16:28</span>
             <hr />
-            <Button variant="secondary" className="like_button">
+            <button className="like_button rounded-0">
               <span>98</span> <FontAwesomeIcon icon={faHeart} />
-            </Button>
-            <Button variant="secondary" className="dislike_button">
+            </button>
+            <button className="dislike_button rounded-0">
               <span>5</span> <FontAwesomeIcon icon={faHeartCrack} />
-            </Button>
-            <Button variant="secondary" className="comment_button">
+            </button>
+            <button className="comment_button rounded-0">
               <span>23</span> <FontAwesomeIcon icon={faComment} />
-            </Button>
+            </button>
           </div>
         ))}
       </div>
