@@ -1,35 +1,58 @@
 .acc_big_div {
-  text-align: center;
   background-color: whitesmoke;
 }
 
 /*Sidebar*/
 
+.acc_sidebar {
+  width: 30%;
+  position: fixed;
+  left: 20px;
+  top: 100px;
+  color: black;
+  text-align: left;
+}
+
+.acc_sticky_sidebar {
+  background-color: white;
+  padding: 15px;
+  box-shadow: inset 0.8px 0.8px whitesmoke, 3px 3px whitesmoke;
+}
+
 .acc_logout_button {
   width: 100%;
-  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: white;
+  color: black;
+  float: right;
+  font-weight: bold;
 }
 
 .acc_delete_user_button {
   width: 100%;
-  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: white;
+  color: black;
+  float: right;
+  font-weight: bold;
 }
 
 /*Saját postok*/
 
 .acc_blog_text {
-  text-align: left;
   padding: 25px;
-  border: none;
-  border-radius: 0px;
   width: 66%;
   margin: 20px;
   float: right;
-  background-color: whitesmoke;
-  /* border: 2px solid black; */
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 1); */
-  box-shadow: inset 0.8px 0.8px #000, 2px 2px #000;
+  background-color: white;
+  box-shadow: inset 0.8px 0.8px whitesmoke, 3px 3px whitesmoke;
   font-size: 20px;
+}
+
+.user_acc_link {
+  color: black;
 }
 
 .acc_like {
@@ -51,16 +74,27 @@
 }
 
 .acc_delete_button {
-  margin: 10px;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: white;
+  color: black;
+  width: 6%;
+  font-weight: bold;
+  margin: 5px;
+  font-size: 15px;
   float: right;
-  font-size: 20px;
 }
 
 .acc_update_button {
-  margin: 10px;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: white;
+  color: black;
+  width: 6%;
+  font-weight: bold;
+  margin: 5px;
+  font-size: 15px;
   float: right;
-  text-decoration: none;
-  font-size: 20px;
 }
 
 .acc_rewrite_button {

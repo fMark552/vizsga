@@ -5,6 +5,7 @@ import {
   faHeart,
   faHeartCrack,
   faHouse,
+  faMagnifyingGlass,
   faPen,
   faTrashCan,
   faUserPlus,
@@ -15,6 +16,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../css/Account.css'
 import Logo from '../img/logo.png'
+import InputGroup from 'react-bootstrap/InputGroup'
 
 const Account = () => {
   const [blog, setBlog] = useState([])
@@ -50,6 +52,21 @@ const Account = () => {
                 <FontAwesomeIcon icon={faHouse} />
               </Link>
             </li>
+            <li className="home_link">
+              <Link className="navbar_link" to="/">
+                <p>Home</p>
+              </Link>
+            </li>
+            <li>
+              <Link className="navbar_link" to="/account">
+                <FontAwesomeIcon icon={faCircleUser} />
+              </Link>
+            </li>
+            <li>
+              <Link className="navbar_link" to="/account">
+                <p>Profile</p>
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -58,25 +75,20 @@ const Account = () => {
         </div>
 
         <div className="right_section">
-          <ul className="account">
-            <li>
-              <Link className="navbar_link" to="/account">
-                <FontAwesomeIcon icon={faCircleUser} />
-              </Link>
-            </li>
-          </ul>
+          <InputGroup>
+            <input className="search_bar" placeholder="Search..." />
+            <button className="home_search_button">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
+          </InputGroup>
         </div>
       </div>
       <div className="acc_sidebar">
         <div className="acc_sticky_sidebar">
-          <div></div>
-          <hr />
           <div className="acc_followed">
-            <button className="acc_logout_button rounded-0">Log out</button>
+            <button className="acc_logout_button">Log out</button>
             <hr />
-            <button className="acc_delete_user_button rounded-0">
-              Delete page
-            </button>
+            <button className="acc_delete_user_button">Delete page</button>
           </div>
         </div>
       </div>
@@ -87,29 +99,34 @@ const Account = () => {
         {blog.map((blog) => (
           <div key={blog.id} className="acc_blog_text">
             <span>
-              <strong>Márk</strong>
+              <Link className="user_acc_link">
+                <strong>Márk</strong>
+              </Link>
             </span>
+            <p className="timestamp">
+              <span>2024.01.26 16:28</span>
+            </p>
             <hr />
-            <h5>{blog.text}</h5>
+            <p>
+              <h5>{blog.text}</h5>
+            </p>
             <hr />
-            <span className="timestamp">2024.01.26 16:28</span>
-            <hr />
-            <button className="acc_like rounded-0">
+            <button className="like_button">
               <span>98</span> <FontAwesomeIcon icon={faHeart} />
             </button>
-            <button className="acc_dislike rounded-0">
+            <button className="dislike_button">
               <span>5</span> <FontAwesomeIcon icon={faHeartCrack} />
             </button>
-            <button className="acc_comment rounded-0">
+            <button className="comment_button">
               <span>23</span> <FontAwesomeIcon icon={faComment} />
             </button>
             <button
               onClick={() => handleDelete(blog.id)}
-              className="acc_delete_button rounded-0"
+              className="acc_delete_button"
             >
               <FontAwesomeIcon icon={faTrashCan} />
             </button>
-            <button className="acc_update_button rounded-0">
+            <button className="acc_update_button">
               <Link className="acc_rewrite_button" to={`/update/${blog.id}`}>
                 <FontAwesomeIcon icon={faPen} />
               </Link>
