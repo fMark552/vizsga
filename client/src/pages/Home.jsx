@@ -77,7 +77,7 @@ const Home = () => {
             </li>
             <li>
               <Link className="navbar_link" to="/account">
-                <p>Profile</p>
+                <p>Your page</p>
               </Link>
             </li>
           </ul>
@@ -196,8 +196,8 @@ const Home = () => {
         {blog.map((blog) => (
           <div key={blog.id} className="blog_text">
             <span>
-              <Link className="user_acc_link">
-                <strong>Márk</strong>
+              <Link className="user_acc_link" to="/other">
+                <strong>Márk552</strong>
               </Link>
               <div className="follow_button_group">
                 <button className="follow_button">
