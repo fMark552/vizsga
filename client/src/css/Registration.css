@@ -1,0 +1,63 @@
+.login_button {
+  width: 100%;
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: white;
+}
+
+.welcome_text {
+  padding: 50px;
+  margin-top: 100px;
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+.reg_form {
+  text-align: center;
+  padding: 50px;
+  width: 50%;
+  float: right;
+  font-size: 20px;
+}
+
+.reg_big_div {
+  margin-top: 100px;
+}
+
+.reg_create_acc {
+  margin-bottom: 155px;
+}
+
+.welcome_create_acc_link {
+  color: black;
+}
+
+.reg_username {
+  border-radius: 25px;
+  border: 1px solid black;
+  padding: 6px;
+  width: 100%;
+}
+
+.reg_email {
+  border-radius: 25px;
+  border: 1px solid black;
+  padding: 6px;
+  width: 100%;
+}
+
+.reg_password {
+  border-radius: 25px;
+  border: 1px solid black;
+  padding: 6px;
+  width: 100%;
+}
+
+.reg_password_again {
+  border-radius: 25px;
+  border: 1px solid black;
+  padding: 6px;
+  width: 100%;
+}

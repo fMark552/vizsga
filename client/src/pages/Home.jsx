@@ -12,7 +12,6 @@ import {
   faHeartCrack,
   faHouse,
   faMagnifyingGlass,
-  faParagraph,
   faPenToSquare,
   faUserPlus,
 } from '@fortawesome/free-solid-svg-icons'
@@ -20,8 +19,6 @@ import { Link } from 'react-router-dom'
 import Logo from '../img/logo.png'
 
 const Home = () => {
-  //Sidebar
-
   const [newThought, setNewThought] = useState({
     text: '',
   })

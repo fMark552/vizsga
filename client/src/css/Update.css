@@ -1,0 +1,105 @@
+.rewrite_text_box {
+  width: 100%;
+  resize: none;
+  border: none;
+  padding: 25px;
+}
+
+.rewrite_thought {
+  margin: 20px;
+  color: black;
+  text-align: center;
+  background-color: white;
+  box-shadow: inset 0.8px 0.8px whitesmoke, 3px 3px whitesmoke;
+  margin-bottom: 358px;
+}
+
+.rewrite_word_count {
+  padding: 25px;
+  font-weight: bold;
+}
+
+.publish_button {
+  width: 20%;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: white;
+  color: black;
+  float: right;
+  font-weight: bold;
+  margin: 25px;
+}
+
+.back_to_acc_button {
+  margin: 25px;
+  width: 20%;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: white;
+  float: right;
+  font-weight: bold;
+}
+
+.back_to_acc_link {
+  text-decoration: none;
+  color: black;
+}
+
+.user_acc_link {
+  color: black;
+}
+
+/*Navbar*/
+
+.navbar {
+  position: fixed;
+  top: 0;
+  height: 80px;
+  background-color: white;
+  z-index: 1000;
+}
+
+.left_section ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.left_section li {
+  display: inline-block;
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.center_section img {
+  max-width: 100px;
+}
+
+.navbar_link {
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.home_link {
+  margin-right: 50px;
+}
+
+.right_section {
+  margin-right: 20px;
+}
+
+.home_search_button {
+  border: 1px solid black;
+  border-radius: 25px;
+  width: 40px;
+  background-color: white;
+  color: black;
+}
+
+.search_bar {
+  border-radius: 25px;
+  border: 1px solid black;
+  padding: 6px;
+  width: 250px;
+}
