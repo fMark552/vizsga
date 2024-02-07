@@ -1,17 +1,10 @@
 import React, { useState } from 'react'
 import '../css/Registration.css'
 import { Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Registration = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
-  const handleLogin = (e) => {
-    e.preventDefault()
-    console.log('Email:', email, 'Password:', password)
-  }
-
   return (
     <div className="reg_big_div">
       <div className="welcome_text">
@@ -21,41 +14,35 @@ const Registration = () => {
         <Container>
           <form>
             <input
+              name="username"
               className="reg_username"
               placeholder="Username"
               type="text"
-              // value={text}
-              onChange={(e) => setEmail(e.target.value)}
             />
             <hr />
             <input
+              name="email"
               className="reg_email"
               placeholder="Email"
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
             <hr />
             <input
+              name="password"
               className="reg_password"
               placeholder="Password"
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
             />
             <hr />
             <input
+              name="password2"
               className="reg_password_again"
               placeholder="Password again"
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
             />
           </form>
           <br />
-          <button className="login_button" type="submit" onClick={handleLogin}>
-            Create account
-          </button>
+          <button className="reg_button">Create account</button>
         </Container>
         <br />
         <div className="reg_create_acc">

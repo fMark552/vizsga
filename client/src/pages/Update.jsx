@@ -83,7 +83,7 @@ const Update = () => {
             className="rewrite_text_box "
             type="text"
             rows="10"
-            placeholder="Your thoughts..."
+            placeholder="Rewrite your thought..."
             name="text"
             onChange={handleChange}
           />

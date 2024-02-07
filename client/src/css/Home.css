@@ -143,6 +143,7 @@ button {
 
 .word_counter {
   float: left;
+  margin-left: 5px;
 }
 
 .word_count {

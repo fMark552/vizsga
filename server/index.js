@@ -30,8 +30,12 @@ app.get('/home', (req, res) => {
 })
 
 app.post('/home', (req, res) => {
-  const q = 'INSERT INTO blog (`text`) VALUES (?)'
-  const value = [req.body.text]
+  const q = 'INSERT INTO blog (`text`, `userId`, `timestamp`) VALUES (?)'
+  const value = [
+    req.body.text,
+    userInfo.id,
+    moment(Date.now()).format('YYYY-MM-DD HH:mm:ss'),
+  ]
 
   db.query(q, [value], (err, data) => {
     if (err) return res.send(err)

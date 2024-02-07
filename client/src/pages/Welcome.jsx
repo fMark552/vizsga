@@ -1,17 +1,9 @@
 import React, { useState } from 'react'
 import '../css/Welcome.css'
-import { Container, Form, Button } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Welcome = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
-  const handleLogin = (e) => {
-    e.preventDefault()
-    console.log('Email:', email, 'Password:', password)
-  }
-
   return (
     <div className="welcome_big_div">
       <div className="welcome_text">
@@ -21,25 +13,24 @@ const Welcome = () => {
         <Container>
           <form>
             <input
+              name="email"
               className="welcome_email"
               placeholder="Email"
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
             <hr />
             <input
+              name="password"
               className="welcome_password"
               placeholder="Password"
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
             />
+            <br />
+            <br />
+            <button className="login_button" type="submit">
+              Log in
+            </button>
           </form>
-          <br />
-          <button className="login_button" type="submit" onClick={handleLogin}>
-            Login
-          </button>
         </Container>
         <br />
         <div className="welcome_create_acc">

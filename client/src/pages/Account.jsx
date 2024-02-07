@@ -148,7 +148,9 @@ const Account = () => {
       <div className="acc_sidebar">
         <div className="acc_sticky_sidebar">
           <div className="acc_followed">
-            <button className="acc_logout_button">Log out</button>
+            <button className="acc_logout_button">
+              <Link to="/welcome">Log out</Link>
+            </button>
             <button className="acc_delete_user_button">Delete page</button>
           </div>
         </div>
