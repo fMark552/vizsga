@@ -1,4 +1,5 @@
 import { db } from '../Database.js'
+import bcrypt from 'bcryptjs'
 
 export const Login = (req, res) => {}
 
@@ -7,8 +8,7 @@ export const Registration = (req, res) => {
 
   db.query(q, [req.body.username], (err, data) => {
     if (err) return res.status(500).json(err)
-    if (data.length)
-      return res.status(409).json('You created this account already!')
+    if (data.length) return res.status(409).json('This account already exists!')
 
     const secure = bcrypt.genSaltSync(10)
     const securePassword = bcrypt.hashSync(req.body.password, secure)

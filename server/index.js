@@ -1,5 +1,5 @@
 import express from 'express'
-import { db } from '../Database.js'
+import { db } from './Database.js'
 import cors from 'cors'
 import { getUser } from './controllers/User.js'
 import { getPost } from './controllers/Post.js'

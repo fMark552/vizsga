@@ -4,6 +4,8 @@
   color: black;
   padding: 20px;
   width: 100%;
+  position: fixed;
+  bottom: 0px;
 }
 
 .footer_copy_text {
