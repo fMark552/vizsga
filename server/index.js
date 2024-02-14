@@ -1,69 +1,69 @@
 import express from 'express'
-import mysql from 'mysql'
+import { db } from '../Database.js'
 import cors from 'cors'
+import { getUser } from './controllers/User.js'
+import { getPost } from './controllers/Post.js'
+import { getComment } from './controllers/Comment.js'
+import { getHeart } from './controllers/Heart.js'
+import { Login, Registration, Logout } from './controllers/Auth.js'
 
 const app = express()
 
 const port = 1997
 
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'vizsga',
-})
-
 //Express middleware -> json file-ok küldéséhez
 app.use(express.json())
 app.use(cors())
 
-app.get('/', (req, res) => {
-  res.json('aha')
-})
+app.get('/server/users', getUser)
+app.get('/server/posts', getPost)
+app.get('/server/comments', getComment)
+app.get('/server/hearts', getHeart)
 
-app.get('/home', (req, res) => {
-  const q = 'SELECT * FROM blog'
-  db.query(q, (err, data) => {
-    if (err) return res.send(err)
-    return res.json(data)
-  })
-})
+//Auth route-ok
+app.post('/login', Login)
+app.post('/registration', Registration)
+app.post('/logout', Logout)
 
-app.post('/home', (req, res) => {
-  const q = 'INSERT INTO blog (`text`, `userId`, `timestamp`) VALUES (?)'
-  const value = [
-    req.body.text,
-    userInfo.id,
-    moment(Date.now()).format('YYYY-MM-DD HH:mm:ss'),
-  ]
+// app.get('/home', (req, res) => {
+//   const q = 'SELECT * FROM blog'
+//   db.query(q, (err, data) => {
+//     if (err) return res.send(err)
+//     return res.json(data)
+//   })
+// })
 
-  db.query(q, [value], (err, data) => {
-    if (err) return res.send(err)
-    return res.json(data)
-  })
-})
+// app.post('/home', (req, res) => {
+//   const q = 'INSERT INTO blog (`text`, `userId`, `timestamp`) VALUES (?)'
+//   const value = [req.body.text]
 
-app.delete('/home/:id', (req, res) => {
-  const blogId = req.params.id
-  const q = 'DELETE FROM blog WHERE id = ?'
+//   db.query(q, [value], (err, data) => {
+//     if (err) return res.send(err)
+//     return res.json(data)
+//   })
+// })
 
-  db.query(q, [blogId], (err, data) => {
-    if (err) return res.send(err)
-    return res.json(data)
-  })
-})
+// app.delete('/home/:id', (req, res) => {
+//   const blogId = req.params.id
+//   const q = 'DELETE FROM blog WHERE id = ?'
 
-app.put('/home/:id', (req, res) => {
-  const blogId = req.params.id
-  const q = 'UPDATE blog SET `text` = ? WHERE id = ? '
+//   db.query(q, [blogId], (err, data) => {
+//     if (err) return res.send(err)
+//     return res.json(data)
+//   })
+// })
 
-  const value = [req.body.text]
+// app.put('/home/:id', (req, res) => {
+//   const blogId = req.params.id
+//   const q = 'UPDATE blog SET `text` = ? WHERE id = ? '
 
-  db.query(q, [...value, blogId], (err, data) => {
-    if (err) return res.send(err)
-    return res.json(data)
-  })
-})
+//   const value = [req.body.text]
+
+//   db.query(q, [...value, blogId], (err, data) => {
+//     if (err) return res.send(err)
+//     return res.json(data)
+//   })
+// })
 
 app.listen(port, () => {
   console.log(`The server is running on port ${port}`)

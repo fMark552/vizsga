@@ -37,7 +37,6 @@ const Home = () => {
   }
 
   //Fetch
-
   const [blog, setBlog] = useState([])
 
   useEffect(() => {
