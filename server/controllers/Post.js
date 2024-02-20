@@ -1,1 +1,3 @@
-export const getPost = (req, res) => {}
+export const getPost = (req, res) => {
+  res.json('Post cucc')
+}

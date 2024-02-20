@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../css/Welcome.css'
 import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'

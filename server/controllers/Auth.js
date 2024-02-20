@@ -8,12 +8,16 @@ export const Registration = (req, res) => {
 
   db.query(q, [req.body.username], (err, data) => {
     if (err) return res.status(500).json(err)
-    if (data.length) return res.status(409).json('This account already exists!')
+    if (data.length)
+      return res
+        .status(409)
+        .json('An account with this username already exists!')
 
     const secure = bcrypt.genSaltSync(10)
     const securePassword = bcrypt.hashSync(req.body.password, secure)
 
-    const q = 'INSERT INTO users (`username`,`email`,`password`) VALUE (?)'
+    const q =
+      'INSERT INTO users (`username`,`email`,`password`) VALUES (?, ?, ?)'
 
     db.query(
       q,

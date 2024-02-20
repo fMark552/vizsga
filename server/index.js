@@ -15,10 +15,10 @@ const port = 1997
 app.use(express.json())
 app.use(cors())
 
-app.get('/server/users', getUser)
-app.get('/server/posts', getPost)
-app.get('/server/comments', getComment)
-app.get('/server/hearts', getHeart)
+app.get('/users', getUser)
+app.get('/posts', getPost)
+app.get('/comments', getComment)
+app.get('/hearts', getHeart)
 
 //Auth route-ok
 app.post('/login', Login)

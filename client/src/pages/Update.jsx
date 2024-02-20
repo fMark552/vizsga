@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { useState } from 'react'
-import Button from 'react-bootstrap/esm/Button'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import '../css/Update.css'
 import InputGroup from 'react-bootstrap/InputGroup'
