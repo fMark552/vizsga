@@ -5,7 +5,8 @@ import { getUser } from './controllers/User.js'
 import { getPost } from './controllers/Post.js'
 import { getComment } from './controllers/Comment.js'
 import { getHeart } from './controllers/Heart.js'
-import { Login, Registration, Logout } from './controllers/Auth.js'
+import { Registration, Login, Logout } from './controllers/Auth.js'
+import cookieParser from 'cookie-parser'
 
 const app = express()
 
@@ -14,6 +15,7 @@ const port = 1997
 //Express middleware -> json file-ok küldéséhez
 app.use(express.json())
 app.use(cors())
+app.use(cookieParser())
 
 app.get('/users', getUser)
 app.get('/posts', getPost)

@@ -64,7 +64,9 @@ const Update = () => {
         </div>
 
         <div className="center_section">
-          <img src={Logo} height="25px" width="auto" alt="logo" />
+          <Link to="/">
+            <img src={Logo} height="25px" width="auto" alt="logo" />
+          </Link>
         </div>
 
         <div className="right_section">
