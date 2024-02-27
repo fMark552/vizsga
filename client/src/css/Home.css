@@ -167,8 +167,6 @@ button {
 /*Navbar*/
 
 .navbar {
-  position: fixed;
-  top: 0;
   height: 80px;
   background-color: white;
   z-index: 1000;
@@ -280,12 +278,6 @@ table {
   font-weight: bold;
 }
 
-.dark * {
-  background-color: rgb(50, 50, 50);
-  color: white;
-}
-
-.light {
-  --bs-body-bg: aliceblue;
-  color: black;
+.between {
+  margin-bottom: 200px;
 }

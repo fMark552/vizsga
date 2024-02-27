@@ -3,7 +3,6 @@
 }
 
 /*Sidebar*/
-
 .navbar {
   position: sticky;
   margin-top: 0px;
@@ -139,4 +138,18 @@
 .acc_title {
   margin-bottom: 0px;
   font-weight: bold;
+}
+
+/*MOBIL CSS*/
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    display: none;
+  }
+  .right_section {
+    display: none;
+  }
+  .mobile_sidebar {
+    display: none;
+  }
 }
