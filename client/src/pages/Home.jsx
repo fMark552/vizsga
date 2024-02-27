@@ -14,12 +14,9 @@ import {
   faMagnifyingGlass,
   faPenToSquare,
   faUserPlus,
-  faMoon,
-  faSun,
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import Logo from '../img/logo.png'
-import DarkMode from '../components/DarkMode.jsx'
 
 const Home = () => {
   const [newThought, setNewThought] = useState({
@@ -54,10 +51,8 @@ const Home = () => {
     fetchBlog()
   }, [])
 
-  const { dark, blackOrWhite } = useContext(DarkMode)
-
   return (
-    <div className={dark ? 'dark' : 'light'}>
+    <div>
       <div className="home_big_div">
         <div className="navbar">
           <div className="left_section">

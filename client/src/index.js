@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { DarkModeSetter } from './components/DarkMode.jsx'
+import { AuthContextProvider } from './contexts/AuthCon'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <DarkModeSetter>
+    <AuthContextProvider>
       <App />
       <Footer />
-    </DarkModeSetter>
+    </AuthContextProvider>
   </React.StrictMode>
 )
