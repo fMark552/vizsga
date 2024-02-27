@@ -4,17 +4,10 @@
   color: black;
   width: 100%;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
 }
 
 .footer_copy_text {
   margin-top: 20px;
   font-size: 20px;
-}
-
-.dark_light_button {
-  border: none;
-  background-color: white;
-  padding: 10px;
-  margin-bottom: -50px;
 }

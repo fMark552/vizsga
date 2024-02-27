@@ -2,12 +2,12 @@ import express from 'express'
 import { db } from './Database.js'
 import cors from 'cors'
 import { getUser } from './controllers/User.js'
-import { getPost } from './controllers/Post.js'
+import { getBlog } from './controllers/Blog.js'
 import { getComment } from './controllers/Comment.js'
 import { getHeart } from './controllers/Heart.js'
 import { Registration, Login, Logout } from './controllers/Auth.js'
 import cookieParser from 'cookie-parser'
- 
+
 const app = express()
 
 const port = 1997
@@ -17,7 +17,7 @@ app.use(cors({ origin: 'http://localhost:3000', credentials: true }))
 app.use(cookieParser())
 
 app.get('/users', getUser)
-app.get('/posts', getPost)
+app.get('/blogs', getBlog)
 app.get('/comments', getComment)
 app.get('/hearts', getHeart)
 
@@ -26,13 +26,13 @@ app.post('/login', Login)
 app.post('/registration', Registration)
 app.post('/logout', Logout)
 
-// app.get('/home', (req, res) => {
-//   const q = 'SELECT * FROM blog'
-//   db.query(q, (err, data) => {
-//     if (err) return res.send(err)
-//     return res.json(data)
-//   })
-// })
+app.get('/home', (req, res) => {
+  const q = 'SELECT * FROM users'
+  db.query(q, (err, data) => {
+    if (err) return res.send(err)
+    return res.json(data)
+  })
+})
 
 // app.post('/home', (req, res) => {
 //   const q = 'INSERT INTO blog (`text`, `userId`, `timestamp`) VALUES (?)'

@@ -4,6 +4,11 @@
 
 /*Sidebar*/
 
+.navbar {
+  position: sticky;
+  margin-top: 0px;
+}
+
 .acc_sidebar {
   width: 30%;
   position: fixed;
