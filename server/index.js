@@ -7,6 +7,9 @@ import { getComment } from './controllers/Comment.js'
 import { getHeart } from './controllers/Heart.js'
 import { Registration, Login, Logout } from './controllers/Auth.js'
 import cookieParser from 'cookie-parser'
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
 
 const app = express()
 
@@ -27,11 +30,19 @@ app.post('/registration', Registration)
 app.post('/logout', Logout)
 
 app.get('/home', (req, res) => {
+  prisma.users.findMany().then(users => {
+    res.json(users)
+  }).catch(err => {
+    res.send(err)
+  })
+  /*
+
   const q = 'SELECT * FROM users'
   db.query(q, (err, data) => {
     if (err) return res.send(err)
     return res.json(data)
   })
+  */
 })
 
 // app.post('/home', (req, res) => {
