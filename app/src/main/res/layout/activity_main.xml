@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_centerHorizontal="true"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:id="@+id/loginTextView"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/lightblue"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/usernameEditText"
+        android:hint="Username"
+        android:inputType="text"
+        android:textSize="20dp"
+        android:layout_centerInParent="true"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordEditText"
+        android:layout_below="@+id/usernameEditText"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:textSize="20dp"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordEditText"
+        android:text="Login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:id="@+id/loginButton"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:background="@color/lightblue"
+        android:backgroundTint="@color/lightblue"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create new account"
+        android:id="@+id/createTextView"
+        android:layout_below="@+id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createTextView"
+        android:text="Tova"
+        android:id="@+id/tovabutton"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/hibaTextView"
+        android:layout_below="@+id/tovabutton"
+        android:textAlignment="center"/>
+
+</RelativeLayout>
