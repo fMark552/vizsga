@@ -7,3 +7,11 @@ export const getBlog = (req, res) => {
     return res.json(data);
   })
 }
+
+export const postBlog=(req,res)=>{
+  const q='INSERT INTO blog (text, userId, timestamp) VALUES (?, ?, ?);';
+  db.query(q,[req.body.text,req.body.userId,req.body.timestamp],(err,data)=>{
+    if(err) return res.status(500).json(err);
+    return res.status(200).json('Post has been created!')
+  })
+}

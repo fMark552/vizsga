@@ -2,8 +2,8 @@ import express from 'express'
 import { db } from './Database.js'
 import cors from 'cors'
 import { getUser } from './controllers/User.js'
-import { getBlog } from './controllers/Blog.js'
-import { getComment } from './controllers/Comment.js'
+import { getBlog, postBlog } from './controllers/Blog.js'
+import { getComment, postComment } from './controllers/Comment.js'
 import { getHeart } from './controllers/Heart.js'
 import { Registration, Login, Logout } from './controllers/Auth.js'
 import cookieParser from 'cookie-parser'
@@ -19,10 +19,15 @@ app.use(express.json())
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }))
 app.use(cookieParser())
 
+//Get kérések
 app.get('/users', getUser)
 app.get('/blogs', getBlog)
 app.get('/comments/:id', getComment)
 app.get('/hearts', getHeart)
+
+//Post kérések
+app.post('/postblog',postBlog)
+app.post('/postcomment',postComment)
 
 //Auth route-ok
 app.post('/login', Login)

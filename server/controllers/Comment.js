@@ -8,3 +8,11 @@ export const getComment = (req, res) => {
     return res.json(data);
   })
 }
+
+export const postComment=(req,res)=>{
+  const q='INSERT INTO comments (commentText, timestamp, commentUserId, commentBlogId) VALUES (?, ?, ?, ?);';
+  db.query(q,[req.body.commentText,req.body.timestamp,req.body.commentUserId,req.body.commentBlogId],(err,data)=>{
+    if(err) return res.status(500).json(err);
+    return res.status(200).json('Comment has been created!')
+  })
+}
