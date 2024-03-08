@@ -16,3 +16,12 @@ export const postComment=(req,res)=>{
     return res.status(200).json('Comment has been created!')
   })
 }
+
+export const deleteComment=(req,res)=>{
+  const commentId=req.params.id;
+  const q='DELETE FROM comments WHERE id=?;';
+  db.query(q,[commentId],(err,data)=>{
+    if(err) return res.status(500).json(err);
+    return res.status(200).json('Comment has been deleted!');
+  })
+}

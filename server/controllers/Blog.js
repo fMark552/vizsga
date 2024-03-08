@@ -15,3 +15,12 @@ export const postBlog=(req,res)=>{
     return res.status(200).json('Post has been created!')
   })
 }
+
+export const deleteBlog=(req,res)=>{
+  const blogId=req.params.id;
+  const q='DELETE FROM blog WHERE id = ?;';
+  db.query(q,[blogId],(err,data)=>{
+    if(err) return res.status(500).json(err);
+    return res.status(200).json('Post has been deleted!');
+  })
+}
