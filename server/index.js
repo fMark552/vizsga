@@ -22,6 +22,7 @@ app.use(cookieParser())
 //Get kérések
 app.get('/users', getUser)
 app.get('/blogs', getBlog)
+//Comment get a Blog id-je szerint
 app.get('/comments/:id', getComment)
 app.get('/hearts', getHeart)
 
