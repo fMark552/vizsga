@@ -21,7 +21,7 @@ app.use(cookieParser())
 
 app.get('/users', getUser)
 app.get('/blogs', getBlog)
-app.get('/comments', getComment)
+app.get('/comments/:id', getComment)
 app.get('/hearts', getHeart)
 
 //Auth route-ok
