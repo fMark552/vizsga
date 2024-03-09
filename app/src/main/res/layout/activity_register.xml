@@ -65,6 +65,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/hibaTextView"
         android:layout_below="@+id/alreadyTextView"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:textColor="@color/red"/>
 
 </RelativeLayout>

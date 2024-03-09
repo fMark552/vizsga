@@ -28,13 +28,10 @@ public class RegisterActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username=usernameET.toString();
-                String password=passwordET.toString();
-                if(username.isEmpty()){
-                    hibauzenet="The username field cannot be empty!";
-                    hibaTV.setText(hibauzenet);
-                } else if (password.isEmpty()) {
-                    hibauzenet="The password field cannot be empty!";
+                String username=usernameET.getText().toString();
+                String password=passwordET.getText().toString();
+                if(username.isEmpty()||password.isEmpty()) {
+                    hibauzenet = "The username or password field cannot be empty!";
                     hibaTV.setText(hibauzenet);
                 }
             }
