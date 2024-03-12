@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model blog {
+  id        Int        @id @unique(map: "id_UNIQUE") @default(autoincrement())
+  text      String     @db.VarChar(300)
+  userId    Int
+  timestamp DateTime?  @db.DateTime(0)
+  users     users      @relation(fields: [userId], references: [id], onDelete: Cascade, map: "userId")
+  comments  comments[]
+  hearts    hearts[]
+
+  @@index([userId], map: "userId_idx")
+}
+
+model comments {
+  id            Int       @id @unique(map: "id_UNIQUE") @default(autoincrement())
+  commentText   String    @db.VarChar(300)
+  timestamp     DateTime? @db.DateTime(0)
+  commentUserId Int
+  commentBlogId Int
+  blog          blog      @relation(fields: [commentBlogId], references: [id], onDelete: Cascade, map: "commentBlogId")
+  users         users     @relation(fields: [commentUserId], references: [id], onDelete: Cascade, map: "commentUserId")
+
+  @@index([commentBlogId], map: "blogId_idx")
+  @@index([commentUserId], map: "commentUserId_idx")
+}
+
+model hearts {
+  id          Int   @id @default(autoincrement())
+  heartUserId Int
+  heartBlogId Int
+  blog        blog  @relation(fields: [heartBlogId], references: [id], onDelete: Cascade, map: "heartBlogId")
+  users       users @relation(fields: [heartUserId], references: [id], onDelete: Cascade, map: "heartUserId")
+
+  @@index([heartBlogId], map: "heartBlogId_idx")
+  @@index([heartUserId], map: "heartUserId_idx")
+}
+
+model relations {
+  id                              Int   @id @unique(map: "id_UNIQUE") @default(autoincrement())
+  follower                        Int
+  followed                        Int
+  users_relations_followedTousers users @relation("relations_followedTousers", fields: [followed], references: [id], onDelete: Cascade, map: "followed")
+  users_relations_followerTousers users @relation("relations_followerTousers", fields: [follower], references: [id], onDelete: Cascade, map: "follower")
+
+  @@index([followed], map: "followed_idx")
+  @@index([follower], map: "follower_idx")
+}
+
+model users {
+  id                                  Int         @id @unique(map: "id_UNIQUE") @default(autoincrement())
+  username                            String      @db.VarChar(50)
+  email                               String      @db.VarChar(50)
+  password                            String?     @db.VarChar(200)
+  blog                                blog[]
+  comments                            comments[]
+  hearts                              hearts[]
+  relations_relations_followedTousers relations[] @relation("relations_followedTousers")
+  relations_relations_followerTousers relations[] @relation("relations_followerTousers")
+}
