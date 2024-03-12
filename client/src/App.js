@@ -8,23 +8,35 @@ import './App.css'
 import Login from './pages/Login'
 import { useContext } from 'react'
 import { AuthContext } from './contexts/AuthCon'
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query'
+import Layout from './components/Layout'
 
 function App() {
   const { actualUser } = useContext(AuthContext)
 
+  const queryClient = new QueryClient()
+
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/update/:id" element={<Update />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/welcome" element={<Login />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/other" element={<OtherAccount />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/update/:id" element={<Update />} />
+              <Route path="/account" element={<Account />} />
+              <Route path="/welcome" element={<Login />} />
+              <Route path="/registration" element={<Registration />} />
+              <Route path="/other" element={<OtherAccount />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </QueryClientProvider>
   )
 }
 
