@@ -11,9 +11,11 @@ const Tweets = () => {
 
   return (
     <div className="tweets">
-      {data.map((blog) => (
-        <Tweet blog={blog} key={blog.id} />
-      ))}
+      {error
+        ? 'Error!'
+        : isLoading
+        ? 'The data is loading'
+        : data.map((blog) => <Tweet blog={blog} key={blog.id} />)}
     </div>
   )
 }

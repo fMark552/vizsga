@@ -12,12 +12,17 @@ import {
 import { Link } from 'react-router-dom'
 
 const Home = () => {
+  const [characterCount, setCharacterCount] = useState(0)
+
   const [newThought, setNewThought] = useState({
     text: '',
   })
 
   const handleChange = (e) => {
     setNewThought((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    const inputText = e.target.value
+    const textWithoutSpaces = inputText.replace(/\s/g, '')
+    setCharacterCount(textWithoutSpaces.length)
   }
 
   const handleClick = async (e) => {
@@ -35,7 +40,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get('http://localhost:1997/home')
+        const res = await axios.get('http://localhost:1997/blogs')
         setBlog(res.data)
       } catch (err) {
         console.log(err)
@@ -126,6 +131,7 @@ const Home = () => {
             <div className="new_thought">
               <div className="write_new_thought">
                 <textarea
+                  maxLength="300"
                   className="text_box"
                   type="text"
                   rows="5"
@@ -135,7 +141,9 @@ const Home = () => {
                 />
               </div>
               <div className="word_counter">
-                <p className="word_count">0/300</p>
+                <p className="word_count">
+                  <span id="character_counter">{characterCount}</span>/300
+                </p>
               </div>
               <button className="publish_button" onClick={handleClick}>
                 Publish
@@ -147,7 +155,7 @@ const Home = () => {
               <div key={blog.id} className="blog_text">
                 <span>
                   <Link className="user_acc_link" to="/other">
-                    <strong>Márk552</strong>
+                    <strong>{blog.username}</strong>
                   </Link>
                   <div className="follow_button_group">
                     <button className="follow_button">
@@ -156,7 +164,7 @@ const Home = () => {
                     <button className="follow_button_text">Follow</button>
                   </div>
                   <p className="timestamp">
-                    <span>2024.01.26 16:28</span>
+                    <span>{blog.timestamp}</span>
                   </p>
                 </span>
                 <hr />
@@ -177,11 +185,6 @@ const Home = () => {
             ))}
           </div>
         </div>
-        {/* <div className="home_pagination">
-        <FontAwesomeIcon icon={faCircleChevronLeft} />
-        <span>1</span>
-        <FontAwesomeIcon icon={faCircleChevronRight} />
-      </div> */}
       </div>
     </div>
   )

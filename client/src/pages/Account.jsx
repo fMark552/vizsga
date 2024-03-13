@@ -39,75 +39,74 @@ const Account = () => {
 
   return (
     <div className="acc_big_div">
-      <div className="mobile_sidebar">
-        <div className="acc_sidebar2">
-          <div className="sticky_sidebar">
-            <h5 className="your_friends">Your friends</h5>
-            <hr />
-            <table>
-              <tbody>
-                <tr>
-                  <td className="acc_followed_username">
-                    <strong>User1</strong>
-                  </td>
-                  <td>
-                    <button className="acc_unfollow_button">Unfollow</button>
-                  </td>
-                </tr>
-                <br />
-                <tr>
-                  <td className="acc_followed_username">
-                    <strong>User2</strong>
-                  </td>
-                  <td>
-                    <button className="acc_unfollow_button">Unfollow</button>
-                  </td>
-                </tr>
-                <br />
-                <tr>
-                  <td className="acc_followed_username">
-                    <strong>User3</strong>
-                  </td>
-                  <td>
-                    <button className="acc_unfollow_button">Unfollow</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <hr />
-            <button className="see_all_friend">See all</button>
-          </div>
-        </div>
-        <div className="acc_sidebar3">
-          <div className="sticky_sidebar">
-            <h5>Your stats</h5>
-            <hr />
-            <div className="acc_user_stats ">
-              <h5>
-                <span>98</span> <FontAwesomeIcon icon={faHeart} />
-              </h5>
-              <h5>
-                <span>5</span> <FontAwesomeIcon icon={faHeartCrack} />
-              </h5>
-              <h5>
-                <span>23</span> <FontAwesomeIcon icon={faComment} />
-              </h5>
-              <h5>
-                <span>13</span> <FontAwesomeIcon icon={faUserPlus} />
-              </h5>
-              <h5>
-                <span>57</span> <FontAwesomeIcon icon={faPenToSquare} />
-              </h5>
+      <div className="all_sidebar_div">
+        <div className="mobile_sidebar">
+          <div className="acc_sidebar2">
+            <div className="sticky_sidebar">
+              <h5 className="your_friends">Your friends</h5>
+              <hr />
+              <table>
+                <tbody>
+                  <tr>
+                    <td className="acc_followed_username">
+                      <strong>User1</strong>
+                    </td>
+                    <td>
+                      <button className="acc_unfollow_button">Unfollow</button>
+                    </td>
+                  </tr>
+                  <br />
+                  <tr>
+                    <td className="acc_followed_username">
+                      <strong>User2</strong>
+                    </td>
+                    <td>
+                      <button className="acc_unfollow_button">Unfollow</button>
+                    </td>
+                  </tr>
+                  <br />
+                  <tr>
+                    <td className="acc_followed_username">
+                      <strong>User3</strong>
+                    </td>
+                    <td>
+                      <button className="acc_unfollow_button">Unfollow</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <hr />
+              <button className="see_all_friend">See all</button>
             </div>
           </div>
-        </div>
-        <div className="acc_sidebar">
-          <div className="acc_sticky_sidebar">
-            <div className="acc_followed">
-              <button className="acc_logout_button">
-                <Link to="/welcome">Log out</Link>
-              </button>
-              <button className="acc_delete_user_button">Delete page</button>
+          <div className="acc_sidebar3">
+            <div className="sticky_sidebar">
+              <h5>Your stats</h5>
+              <hr />
+              <div className="acc_user_stats ">
+                <h5>
+                  <span>98</span> <FontAwesomeIcon icon={faHeart} />
+                </h5>
+                <h5>
+                  <span>5</span> <FontAwesomeIcon icon={faHeartCrack} />
+                </h5>
+                <h5>
+                  <span>23</span> <FontAwesomeIcon icon={faComment} />
+                </h5>
+                <h5>
+                  <span>13</span> <FontAwesomeIcon icon={faUserPlus} />
+                </h5>
+                <h5>
+                  <span>57</span> <FontAwesomeIcon icon={faPenToSquare} />
+                </h5>
+              </div>
+              <hr />
+              <div className="acc_followed">
+                <button className="acc_logout_button">
+                  <Link to="/welcome">Log out</Link>
+                </button>
+                <button className="acc_delete_user_button">Delete page</button>
+              </div>
             </div>
           </div>
         </div>
@@ -115,7 +114,7 @@ const Account = () => {
       <div className="acc_thoughts_24">
         <h1 className="acc_title">Your page</h1>
       </div>
-      <div>
+      {/* <div>
         {blog.map((blog) => (
           <div key={blog.id} className="acc_blog_text">
             <span>
@@ -153,7 +152,7 @@ const Account = () => {
             </button>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -17,7 +17,7 @@ const OtherAccount = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get('http://localhost:1997/home')
+        const res = await axios.get('http://localhost:1997/blogs')
         setBlog(res.data)
       } catch (err) {
         console.log(err)
@@ -37,74 +37,76 @@ const OtherAccount = () => {
 
   return (
     <div className="acc_big_div">
-      <div className="acc_sidebar2">
-        <div className="sticky_sidebar">
-          <h5 className="your_friends">
-            <span>Márk552</span>'s friends
-          </h5>
-          <hr />
-          <table>
-            <tbody>
-              <tr>
-                <td className="acc_followed_username">
-                  <strong>User1</strong>
-                </td>
-                <td>
-                  <button className="acc_unfollow_button">Unfollow</button>
-                </td>
-              </tr>
-              <br />
-              <tr>
-                <td className="acc_followed_username">
-                  <strong>User2</strong>
-                </td>
-                <td>
-                  <button className="acc_unfollow_button">Unfollow</button>
-                </td>
-              </tr>
-              <br />
-              <tr>
-                <td className="acc_followed_username">
-                  <strong>User3</strong>
-                </td>
-                <td>
-                  <button className="acc_unfollow_button">Unfollow</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <hr />
-          <button className="see_all_friend">See all</button>
+      <div className="all_sidebar_div">
+        <div className="acc_sidebar2">
+          <div className="sticky_sidebar">
+            <h5 className="your_friends">
+              <span>Márk552</span>'s friends
+            </h5>
+            <hr />
+            <table>
+              <tbody>
+                <tr>
+                  <td className="acc_followed_username">
+                    <strong>User1</strong>
+                  </td>
+                  <td>
+                    <button className="acc_unfollow_button">Unfollow</button>
+                  </td>
+                </tr>
+                <br />
+                <tr>
+                  <td className="acc_followed_username">
+                    <strong>User2</strong>
+                  </td>
+                  <td>
+                    <button className="acc_unfollow_button">Unfollow</button>
+                  </td>
+                </tr>
+                <br />
+                <tr>
+                  <td className="acc_followed_username">
+                    <strong>User3</strong>
+                  </td>
+                  <td>
+                    <button className="acc_unfollow_button">Unfollow</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+            <button className="see_all_friend">See all</button>
+          </div>
         </div>
-      </div>
-      <div className="acc_sidebar3">
-        <div className="sticky_sidebar">
-          <h5>
-            <span>Márk552</span>'s stats
-          </h5>
-          <hr />
-          <div className="acc_user_stats ">
+        <div className="acc_sidebar3">
+          <div className="sticky_sidebar">
             <h5>
-              <span>98</span> <FontAwesomeIcon icon={faHeart} />
+              <span>Márk552</span>'s stats
             </h5>
-            <h5>
-              <span>5</span> <FontAwesomeIcon icon={faHeartCrack} />
-            </h5>
-            <h5>
-              <span>23</span> <FontAwesomeIcon icon={faComment} />
-            </h5>
-            <h5>
-              <span>13</span> <FontAwesomeIcon icon={faUserPlus} />
-            </h5>
-            <h5>
-              <span>57</span> <FontAwesomeIcon icon={faPenToSquare} />
-            </h5>
+            <hr />
+            <div className="acc_user_stats ">
+              <h5>
+                <span>98</span> <FontAwesomeIcon icon={faHeart} />
+              </h5>
+              <h5>
+                <span>5</span> <FontAwesomeIcon icon={faHeartCrack} />
+              </h5>
+              <h5>
+                <span>23</span> <FontAwesomeIcon icon={faComment} />
+              </h5>
+              <h5>
+                <span>13</span> <FontAwesomeIcon icon={faUserPlus} />
+              </h5>
+              <h5>
+                <span>57</span> <FontAwesomeIcon icon={faPenToSquare} />
+              </h5>
+            </div>
           </div>
         </div>
       </div>
       <div className="acc_thoughts_24">
         <h1 className="acc_title">
-          <span>Márk552</span>'s page
+          <span>{blog.username}</span>'s page
         </h1>
       </div>
       <div>
@@ -113,12 +115,12 @@ const OtherAccount = () => {
             <span>
               <Link className="user_acc_link">
                 <span>
-                  <strong>Márk552</strong>
+                  <strong>{blog.username}</strong>
                 </span>
               </Link>
             </span>
             <p className="timestamp">
-              <span>2024.01.26 16:28</span>
+              <span>{blog.timestamp}</span>
             </p>
             <hr />
             <p>

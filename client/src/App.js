@@ -14,6 +14,7 @@ import {
   useQuery,
 } from '@tanstack/react-query'
 import Layout from './components/Layout'
+import Settings from './pages/Settings'
 
 function App() {
   const { actualUser } = useContext(AuthContext)
@@ -32,6 +33,7 @@ function App() {
               <Route path="/welcome" element={<Login />} />
               <Route path="/registration" element={<Registration />} />
               <Route path="/other" element={<OtherAccount />} />
+              <Route path="/settings" element={<Settings />} />
             </Route>
           </Routes>
         </BrowserRouter>
