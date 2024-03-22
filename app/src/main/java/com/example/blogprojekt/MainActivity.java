@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText usernameET;
@@ -30,9 +33,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String username=usernameET.getText().toString();
                 String password=passwordET.getText().toString();
+                boolean isValid=true;
                 if(username.isEmpty()||password.isEmpty()) {
                     hibauzenet = "The username or password field cannot be empty!";
                     hibaTV.setText(hibauzenet);
+                    isValid=false;
+                }
+                if(isValid){
+                    String loginString="";
+                    try{
+                        loginString=new JSONObject()
+                                .put("username",username)
+                                .put("password",password)
+                                .toString();
+                    } catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                    RequestTask login=new RequestTask(MainActivity.this,"login","GET",loginString);
+                    login.execute();
                 }
             }
         });
