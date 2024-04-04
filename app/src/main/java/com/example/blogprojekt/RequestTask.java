@@ -13,7 +13,7 @@ public class RequestTask extends AsyncTask<Void, Void, Response> {
     private OutResponse outResponse;
 
     //TODO: url bepukkasztása
-    private final String BASE_URL = "";
+    private final String BASE_URL = "http://localhost:1997/";
 
     public RequestTask(Context context, String requestUrl, String requestType) {
         this.requestUrl = requestUrl;

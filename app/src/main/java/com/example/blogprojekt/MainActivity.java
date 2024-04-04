@@ -2,7 +2,9 @@ package com.example.blogprojekt;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +14,7 @@ import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RequestTask.OutResponse {
 
     private EditText usernameET;
     private EditText passwordET;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView hibaTV;
     private Button tovaBtn;
     private String hibauzenet;
+    private SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
                     hibauzenet = "The username or password field cannot be empty!";
                     hibaTV.setText(hibauzenet);
                     isValid=false;
+                } else{
+                    isValid=true;
                 }
                 if(isValid){
                     String loginString="";
@@ -49,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     } catch (JSONException e){
                         e.printStackTrace();
                     }
-                    RequestTask login=new RequestTask(MainActivity.this,"login","GET",loginString);
+                    RequestTask login=new RequestTask(MainActivity.this,"login","POST",loginString);
                     login.execute();
                 }
             }
@@ -80,5 +85,25 @@ public class MainActivity extends AppCompatActivity {
         createTV=findViewById(R.id.createTextView);
         hibaTV=findViewById(R.id.hibaTextView);
         tovaBtn=findViewById(R.id.tovabutton);
+
+        sharedpreferences = getSharedPreferences("ASD", Context.MODE_PRIVATE);
+    }
+
+    @Override
+    public void response(Response response) {
+        switch (response.getResponseCode()){
+            case 401:
+                hibaTV.setText("Helytelen felhasználónév vagy jelszó!");
+                break;
+            case 200:
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putString("login", usernameET.getText().toString());
+                editor.putString("pwd", passwordET.getText().toString());
+                editor.commit();
+                Intent main = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(main);
+                finish();
+                break;
+        }
     }
 }
