@@ -10,6 +10,6 @@
         android:icon="@drawable/home_vector"/>
     <item
         android:id="@+id/menu_settings"
-        android:title="Settings"
-        android:icon="@drawable/settings_vector"/>
+        android:title="New post"
+        android:icon="@drawable/newpost_vector"/>
 </menu>

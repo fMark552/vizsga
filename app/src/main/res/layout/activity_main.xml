@@ -43,7 +43,7 @@
         android:layout_below="@id/passwordEditText"
         android:text="Login"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="20dp"
         android:id="@+id/loginButton"
         android:textSize="20dp"
         android:textStyle="bold"
