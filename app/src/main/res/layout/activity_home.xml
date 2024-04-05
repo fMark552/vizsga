@@ -32,9 +32,12 @@
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/newpostButton"
-            android:layout_marginTop="10dp"/>
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/post_listitem"
+            android:layout_below="@id/newpostButton"
+            android:id="@+id/blogListView"/>
+
+
 
     </RelativeLayout>
 

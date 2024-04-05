@@ -8,7 +8,7 @@ import android.os.Bundle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ProfileActivity extends AppCompatActivity {
-    BottomNavigationView botnav;
+    private BottomNavigationView botnav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
