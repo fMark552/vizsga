@@ -32,6 +32,36 @@
             android:textSize="20sp"
             android:id="@+id/posttext"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Like"
+                android:background="@color/lightblue"
+                android:backgroundTint="@color/lightblue"
+                android:textColor="@color/white"
+                android:layout_margin="5dp"
+                android:id="@+id/postlike"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Comment"
+                android:background="@color/lightblue"
+                android:backgroundTint="@color/lightblue"
+                android:textColor="@color/white"
+                android:layout_margin="5dp"
+                android:id="@+id/postcomment"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>

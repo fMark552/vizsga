@@ -6,11 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp">
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:id="@+id/profilrelative"
+       android:padding="10dp">
 
-    </FrameLayout>
+       <ImageView
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:layout_centerHorizontal="true"
+           android:src="@drawable/profile_vector"
+           android:id="@+id/profilkepecske"/>
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textAlignment="center"
+           android:layout_below="@id/profilkepecske"
+           android:text="Profile"
+           android:textSize="30dp"
+           android:id="@+id/profileTextView"/>
+       
+       <TextView
+           android:layout_marginTop="20dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Username: "
+           android:layout_below="@id/profileTextView"
+           android:textSize="25dp"
+           android:id="@+id/profileUsernameTextView"/>
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="20dp"
+           android:layout_marginBottom="50dp"
+           android:layout_below="@id/profileUsernameTextView"
+           android:text="Email: "
+           android:textSize="25dp"
+           android:id="@+id/profileEmailTextView"/>
+
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/profileEmailTextView"
+           android:id="@+id/logoutButton"
+           android:layout_centerHorizontal="true"
+           android:textSize="20dp"
+           android:background="@color/lightblue"
+           android:backgroundTint="@color/lightblue"
+           android:textColor="@color/white"
+           android:text="Logout"/>
+
+   </RelativeLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"

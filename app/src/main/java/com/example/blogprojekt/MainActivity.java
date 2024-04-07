@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements RequestTask.OutRe
             public void onClick(View view) {
                 String username=usernameET.getText().toString();
                 String password=passwordET.getText().toString();
-                boolean isValid=true;
+                boolean isValid;
                 if(username.isEmpty()||password.isEmpty()) {
                     hibauzenet = "The username or password field cannot be empty!";
                     hibaTV.setText(hibauzenet);
