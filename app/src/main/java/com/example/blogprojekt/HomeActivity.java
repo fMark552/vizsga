@@ -5,14 +5,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -30,6 +32,9 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
     private BottomNavigationView botnav;
     private ListView blogLV;
     private List<Blogs> blogsList=new ArrayList<>();
+    private int likeCount;
+    private List<LikeCount> likeCountList=new ArrayList<>();
+    SharedPreferences sh;
 
 
     @Override
@@ -68,11 +73,21 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
             TextView postusername=view.findViewById(R.id.postusername);
             TextView posttimestamp=view.findViewById(R.id.posttimestamp);
             TextView posttext=view.findViewById(R.id.posttext);
+            Button postlike=view.findViewById(R.id.postlike);
+            Button postcomment=view.findViewById(R.id.postcomment);
             Blogs actualBlog=blogsList.get(position);
             postusername.setText(actualBlog.getUser());
             posttimestamp.setText((CharSequence) actualBlog.getTimestamp());
             posttext.setText(actualBlog.getText());
 
+            SharedPreferences.Editor editor=sh.edit();
+            editor.putInt("blogid",actualBlog.getId());
+            editor.commit();
+
+            RequestTask task=new RequestTask(HomeActivity.this,"hearts/"+actualBlog.getId(),"GET");
+            task.execute();
+
+            postlike.append(""+likeCount);
             return view;
         }
     }
@@ -82,6 +97,7 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
         botnav.setSelectedItemId(R.id.menu_home);
         blogLV=findViewById(R.id.blogListView);
         blogLV.setAdapter(new BlogsAdapter());
+        sh=getSharedPreferences("Home", Context.MODE_PRIVATE);
     }
 
     @Override

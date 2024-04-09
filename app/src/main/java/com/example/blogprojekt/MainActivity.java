@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements RequestTask.OutRe
         tovaBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 finish();
             }
         });
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements RequestTask.OutRe
         hibaTV=findViewById(R.id.hibaTextView);
         tovaBtn=findViewById(R.id.tovabutton);
 
-        sharedpreferences = getSharedPreferences("ASD", Context.MODE_PRIVATE);
+        sharedpreferences = getSharedPreferences("Main", Context.MODE_PRIVATE);
     }
 
     @Override
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements RequestTask.OutRe
                 break;
             case 200:
                 SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.putString("login", usernameET.getText().toString());
+                editor.putString("username", usernameET.getText().toString());
                 editor.putString("pwd", passwordET.getText().toString());
                 editor.commit();
                 Intent main = new Intent(MainActivity.this, HomeActivity.class);
