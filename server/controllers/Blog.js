@@ -36,3 +36,12 @@ export const deleteBlog = (req, res) => {
     return res.status(200).json('Post has been deleted!')
   })
 }
+
+export const pakkBlog=(req, res)=>{
+  const q ='SELECT blog.id, blog.text, blog.timestamp, users.username AS user FROM blog INNER JOIN users ON blog.userId=users.id;';
+  db.query(q, (err, data) => {
+    if (err) return res.send(err)
+    return res.json(data)
+  })
+        
+}

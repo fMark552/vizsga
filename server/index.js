@@ -2,7 +2,7 @@ import express from 'express'
 import { db } from './Database.js'
 import cors from 'cors'
 import { getUser } from './controllers/User.js'
-import { deleteBlog, getBlog, postBlog } from './controllers/Blog.js'
+import { deleteBlog, getBlog, pakkBlog, postBlog } from './controllers/Blog.js'
 import { deleteComment, getComment, postComment } from './controllers/Comment.js'
 import { getHeart, postHeart } from './controllers/Heart.js'
 import { Registration, Login, Logout } from './controllers/Auth.js'
@@ -22,6 +22,8 @@ app.use(cookieParser())
 //Get kérések
 app.get('/users', getUser)
 app.get('/blogs', getBlog)
+app.get('/pakkBlog',pakkBlog)
+app.get('/users/:id', getUser)
 //Comment get a Blog id-je szerint
 app.get('/comments/:id', getComment)
 //Heart get a Blog id-je szerint
