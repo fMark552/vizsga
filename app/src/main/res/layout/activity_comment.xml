@@ -10,7 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/commentrelative"
-        android:padding="10dp">
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -20,11 +22,30 @@
             android:textSize="30dp"
             android:id="@+id/comment"/>
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="New comment"
+            android:layout_below="@+id/comment"
+            android:id="@+id/newcommentEditText"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/newcommentButton"
+            android:layout_below="@id/newcommentEditText"
+            android:textSize="20dp"
+            android:text="Ok"
+            android:background="@color/lightblue"
+            android:backgroundTint="@color/lightblue"
+            android:textColor="@color/white"
+            android:layout_marginLeft="300dp"/>
+
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/comment_listitem"
-            android:layout_below="@+id/comment"
+            android:layout_below="@+id/newcommentButton"
             android:id="@+id/commentListView"/>
 
     </RelativeLayout>

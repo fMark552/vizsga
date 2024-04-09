@@ -6,13 +6,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity implements RequestTask.OutResponse {
 
@@ -91,7 +95,19 @@ public class MainActivity extends AppCompatActivity implements RequestTask.OutRe
 
     @Override
     public void response(Response response) {
-        switch (response.getResponseCode()){
+        if (response.getResponseCode()>=400){
+
+            Log.d("onPostExecuteError:", response.getContent());
+            hibaTV.setText(response.getContent());
+        }
+        if (response.getResponseCode()==200){
+            Toast.makeText(MainActivity.this,"Succesful login",Toast.LENGTH_SHORT).show();
+            Intent main = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(main);
+            finish();
+        }
+
+        /**switch (response.getResponseCode()){
             case 401:
                 hibaTV.setText("Helytelen felhasználónév vagy jelszó!");
                 break;
@@ -104,6 +120,6 @@ public class MainActivity extends AppCompatActivity implements RequestTask.OutRe
                 startActivity(main);
                 finish();
                 break;
-        }
+        }*/
     }
 }
