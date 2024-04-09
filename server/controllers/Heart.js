@@ -9,6 +9,15 @@ export const getHeart = (req, res) => {
   })
 }
 
+export const getHearts=(req,res)=>{
+  const blogId = req.params.id;
+  const q='SELECT hearts.id,hearts.heartUserId,hearts.heartBlogId FROM `hearts` WHERE heartBlogId=?;'
+  db.query(q,[blogId],(err,data)=>{
+    if(err) return res.json(err);
+    return res.json(data);
+  }) 
+}
+
 export const postHeart=(req,res)=>{
   const q='INSERT INTO hearts (heartUserId,heartBlogId) VALUES (?, ?);';
   db.query(q,[req.body.heartUserId,req.body.heartBlogId],(err,data)=>{

@@ -4,7 +4,7 @@ import cors from 'cors'
 import { getUser } from './controllers/User.js'
 import { deleteBlog, getBlog, pakkBlog, postBlog } from './controllers/Blog.js'
 import { deleteComment, getComment, postComment } from './controllers/Comment.js'
-import { getHeart, postHeart } from './controllers/Heart.js'
+import { getHeart, getHearts, postHeart } from './controllers/Heart.js'
 import { Registration, Login, Logout } from './controllers/Auth.js'
 import cookieParser from 'cookie-parser'
 import { PrismaClient } from '@prisma/client'
@@ -26,8 +26,10 @@ app.get('/pakkBlog',pakkBlog)
 app.get('/users/:id', getUser)
 //Comment get a Blog id-je szerint
 app.get('/comments/:id', getComment)
-//Heart get a Blog id-je szerint
+//Heart count get a Blog id-je szerint
 app.get('/hearts/:id', getHeart)
+//Heart get a Blog id-je szerint
+app.get('/heart/:id',getHearts)
 
 //Post kérések
 app.post('/postblog', postBlog)
