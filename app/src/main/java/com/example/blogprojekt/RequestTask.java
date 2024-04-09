@@ -2,6 +2,7 @@ package com.example.blogprojekt;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.io.IOException;
 
@@ -12,7 +13,7 @@ public class RequestTask extends AsyncTask<Void, Void, Response> {
     private Context context;
     private OutResponse outResponse;
 
-    private final String BASE_URL = "http://localhost:1997/";
+    private final String BASE_URL = "http://10.0.2.2:1997/";
 
     public RequestTask(Context context, String requestUrl, String requestType) {
         this.requestUrl = requestUrl;

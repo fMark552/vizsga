@@ -42,7 +42,7 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         init();
-        RequestTask task=new RequestTask(HomeActivity.this,"blogs","GET");
+        RequestTask task=new RequestTask(HomeActivity.this,"pakkBlog","GET");
         task.execute();
         botnav.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
@@ -68,6 +68,7 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
         @NonNull
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
+
             LayoutInflater inflater=getLayoutInflater();
             View view=inflater.inflate(R.layout.post_listitem,null,false);
             TextView postusername=view.findViewById(R.id.postusername);
@@ -77,18 +78,26 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
             Button postcomment=view.findViewById(R.id.postcomment);
             Blogs actualBlog=blogsList.get(position);
             postusername.setText(actualBlog.getUser());
-            posttimestamp.setText((CharSequence) actualBlog.getTimestamp());
+            posttimestamp.setText(actualBlog.getTimestamp().toString());
             posttext.setText(actualBlog.getText());
 
             SharedPreferences.Editor editor=sh.edit();
             editor.putInt("blogid",actualBlog.getId());
             editor.commit();
 
-            RequestTask task=new RequestTask(HomeActivity.this,"hearts/"+actualBlog.getId(),"GET");
-            task.execute();
+
+            postcomment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getApplicationContext(), CommentActivity.class));
+                    finish();
+                }
+            });
 
             postlike.append(""+likeCount);
             return view;
+
+
         }
     }
 
@@ -112,6 +121,7 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
             blogsList.clear();
             blogsList.addAll(Arrays.asList(blogArray));
             blogLV.invalidateViews();
+            Log.d("onPostExecute: ",response.getContent());
         }
     }
 }
