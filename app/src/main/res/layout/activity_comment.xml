@@ -4,15 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
     tools:context=".CommentActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/commentrelative"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textSize="20dp"
+            android:id="@+id/backButton"
+            android:background="@color/lightblue"
+            android:backgroundTint="@color/lightblue"
+            android:textColor="@color/white" />
 
         <TextView
             android:layout_width="match_parent"
@@ -20,12 +26,14 @@
             android:textAlignment="center"
             android:text="Comments"
             android:textSize="30dp"
-            android:id="@+id/comment"/>
+            android:id="@+id/comment"
+            android:layout_below="@id/backButton"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="New comment"
+            android:textSize="20dp"
             android:layout_below="@+id/comment"
             android:id="@+id/newcommentEditText"/>
 
@@ -47,7 +55,5 @@
             tools:listitem="@layout/comment_listitem"
             android:layout_below="@+id/newcommentButton"
             android:id="@+id/commentListView"/>
-
-    </RelativeLayout>
 
 </RelativeLayout>

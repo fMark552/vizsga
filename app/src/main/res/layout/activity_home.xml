@@ -10,7 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/homerelative"
-        android:padding="10dp">
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="35dp">
 
         <ImageView
             android:layout_width="50dp"
@@ -19,23 +22,20 @@
             android:src="@drawable/home_vector"
             android:id="@+id/fokep"/>
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/fokep"
             android:layout_centerHorizontal="true"
-            android:text="New Post"
-            android:textSize="30sp"
-            android:layout_marginTop="10dp"
-            android:background="@color/lightblue"
-            android:backgroundTint="@color/lightblue"
-            android:id="@+id/newpostButton"/>
+            android:text="Home"
+            android:textSize="30dp"
+            android:id="@+id/homeTextView"/>
 
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/post_listitem"
-            android:layout_below="@id/newpostButton"
+            android:layout_below="@id/homeTextView"
             android:id="@+id/blogListView"/>
 
 

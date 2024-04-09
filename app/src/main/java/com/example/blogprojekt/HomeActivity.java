@@ -65,9 +65,21 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
         public BlogsAdapter(){
             super(HomeActivity.this,R.layout.post_listitem,blogsList);
         }
+
+        /*@Override
+        public int getCount() {
+            return blogsList.size();
+        };
+
+        @Override
+        public Blogs getItem(final int position) {
+            return blogsList.get(position);
+        }*/
+
         @NonNull
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
+
 
             LayoutInflater inflater=getLayoutInflater();
             View view=inflater.inflate(R.layout.post_listitem,null,false);
@@ -93,8 +105,8 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
                     finish();
                 }
             });
-
-            postlike.append(""+likeCount);
+            //TODO: likecount
+            postlike.append(" "+likeCount);
             return view;
 
 
@@ -120,6 +132,7 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
             Blogs[] blogArray=converter.fromJson(response.getContent(),Blogs[].class);
             blogsList.clear();
             blogsList.addAll(Arrays.asList(blogArray));
+            Log.d("prePostExecute: ",blogsList.toString());
             blogLV.invalidateViews();
             Log.d("onPostExecute: ",response.getContent());
         }
