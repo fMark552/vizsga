@@ -18,6 +18,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -57,6 +60,7 @@ public class SettingsActivity extends AppCompatActivity implements RequestTask.O
                 timestamp= Calendar.getInstance().getTime();
                 String text=textET.getText().toString();
                 String postString="";
+                Log.d("ASD",timestamp.toString());
                 try {
                     postString=new JSONObject()
                             .put("userId",id)
