@@ -6,29 +6,37 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity implements RequestTask.OutResponse {
     private BottomNavigationView botnav;
     private SharedPreferences sh;
+    private SharedPreferences sh2;
     private String username;
-    private String password;
+    private String email;
     private TextView emailTV;
     private TextView usernameTV;
     private Button logoutBtn;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         init();
-        usernameTV.setText("Username: "+username);
+        usernameTV.setText("Username: " + username);
+        RequestTask task = new RequestTask(ProfileActivity.this, "users/" + username, "GET");
+        task.execute();
+
         botnav.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()){
+            switch (item.getItemId()) {
                 case R.id.menu_home:
                     startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                     finish();
@@ -36,7 +44,7 @@ public class ProfileActivity extends AppCompatActivity {
                 case R.id.menu_profile:
                     return true;
                 case R.id.menu_settings:
-                    startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
+                    startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                     finish();
                     return true;
             }
@@ -51,14 +59,31 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    public void init(){
-        botnav=findViewById(R.id.bottom_navView);
+    public void init() {
+        botnav = findViewById(R.id.bottom_navView);
         botnav.setSelectedItemId(R.id.menu_profile);
-        sh=getSharedPreferences("Main", Context.MODE_PRIVATE);
-        username=sh.getString("username","");
-        password=sh.getString("password","");
-        logoutBtn=findViewById(R.id.logoutButton);
-        usernameTV=findViewById(R.id.profileUsernameTextView);
-        emailTV=findViewById(R.id.profileEmailTextView);
+        sh = getSharedPreferences("Main", Context.MODE_PRIVATE);
+        sh2=getSharedPreferences("Profile",Context.MODE_PRIVATE);
+        username = sh.getString("username", "");
+        logoutBtn = findViewById(R.id.logoutButton);
+        usernameTV = findViewById(R.id.profileUsernameTextView);
+        emailTV = findViewById(R.id.profileEmailTextView);
+    }
+
+
+    @Override
+    public void response(Response response) {
+        Gson converter = new Gson();
+
+        if (response.getResponseCode() >= 400) {
+            Log.d("onPostExecuteError:", response.getContent());
+        }
+        if (response.getResponseCode() == 200) {
+            user = converter.fromJson(response.getContent(),User.class);
+            SharedPreferences.Editor editor=sh2.edit();
+            editor.putInt("userid",user.getId());
+            editor.commit();
+            emailTV.setText(user.getEmail());
+        }
     }
 }

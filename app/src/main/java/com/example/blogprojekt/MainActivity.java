@@ -101,8 +101,12 @@ public class MainActivity extends AppCompatActivity implements RequestTask.OutRe
             hibaTV.setText(response.getContent());
         }
         if (response.getResponseCode()==200){
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putString("username", usernameET.getText().toString());
+            editor.putString("pwd", passwordET.getText().toString());
+            editor.commit();
             Toast.makeText(MainActivity.this,"Succesful login",Toast.LENGTH_SHORT).show();
-            Intent main = new Intent(MainActivity.this, HomeActivity.class);
+            Intent main = new Intent(MainActivity.this, ProfileActivity.class);
             startActivity(main);
             finish();
         }
