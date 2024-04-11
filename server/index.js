@@ -20,10 +20,10 @@ app.use(cors({ origin: 'http://localhost:3000', credentials: true }))
 app.use(cookieParser())
 
 //Get kérések
-app.get('/users', getUser)
+//app.get('/users', getUser)
 app.get('/blogs', getBlog)
 app.get('/pakkBlog',pakkBlog)
-app.get('/users/:id', getUser)
+app.get('/users/:username', getUser)
 //Comment get a Blog id-je szerint
 app.get('/comments/:id', getComment)
 //Heart count get a Blog id-je szerint
