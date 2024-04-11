@@ -21,6 +21,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -29,15 +31,17 @@ public class SettingsActivity extends AppCompatActivity implements RequestTask.O
     private Button submitBtn;
     private Date timestamp;
     private EditText textET;
-    private SharedPreferences sh;
-    private int id;
+    private SharedPreferences sh2;
     private Date asd;
+    private Date date;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         init();
+        Log.d("IDCHECK: ",String.valueOf(id));
         botnav.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.menu_home:
@@ -57,15 +61,24 @@ public class SettingsActivity extends AppCompatActivity implements RequestTask.O
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String ido="2024-04-11 22:50:50";
+                SimpleDateFormat format = new SimpleDateFormat("'Date\n'dd-MM-yyyy '\n\nand\n\nTime\n'HH:mm:ss z");
+                try {
+                    date = format.parse(ido);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 timestamp= Calendar.getInstance().getTime();
                 String text=textET.getText().toString();
                 String postString="";
+
                 Log.d("ASD",timestamp.toString());
                 try {
                     postString=new JSONObject()
                             .put("userId",id)
                             .put("text",text)
-                            .put("timestamp",timestamp).toString();
+                            .put("timestamp",timestamp)
+                            .toString();
                 } catch (JSONException e){
                     e.printStackTrace();
                 }
@@ -80,8 +93,8 @@ public class SettingsActivity extends AppCompatActivity implements RequestTask.O
         botnav.setSelectedItemId(R.id.menu_settings);
         submitBtn=findViewById(R.id.submitButton);
         textET=findViewById(R.id.edtInput);
-        sh=getSharedPreferences("Profile", Context.MODE_PRIVATE);
-        id=sh.getInt("userid",4);
+        sh2=getSharedPreferences("Profile", Context.MODE_PRIVATE);
+        id=sh2.getInt("userid",1);
     }
 
     @Override

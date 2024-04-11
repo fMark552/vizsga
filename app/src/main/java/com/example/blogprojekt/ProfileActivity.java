@@ -15,6 +15,9 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 public class ProfileActivity extends AppCompatActivity implements RequestTask.OutResponse {
     private BottomNavigationView botnav;
     private SharedPreferences sh;
@@ -24,7 +27,9 @@ public class ProfileActivity extends AppCompatActivity implements RequestTask.Ou
     private TextView emailTV;
     private TextView usernameTV;
     private Button logoutBtn;
+    private User[] users;
     private User user;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,11 +84,15 @@ public class ProfileActivity extends AppCompatActivity implements RequestTask.Ou
             Log.d("onPostExecuteError:", response.getContent());
         }
         if (response.getResponseCode() == 200) {
-            user = converter.fromJson(response.getContent(),User.class);
+            Log.d("onPostExecuteError:", response.getContent());
+            users = converter.fromJson(response.getContent(),User[].class);
             SharedPreferences.Editor editor=sh2.edit();
-            editor.putInt("userid",user.getId());
+            user= users[0];
+            int tesztid=user.getId();
+            Log.d("ID test: ",String.valueOf(tesztid));
+            editor.putInt("userid", user.getId());
             editor.commit();
-            emailTV.setText(user.getEmail());
+            emailTV.setText("Email: "+user.getEmail());
         }
     }
 }
