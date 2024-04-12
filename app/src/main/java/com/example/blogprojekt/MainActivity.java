@@ -16,8 +16,6 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Arrays;
-
 public class MainActivity extends AppCompatActivity implements RequestTask.OutResponse {
 
     private EditText usernameET;
@@ -67,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements RequestTask.OutRe
         tovaBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                startActivity(new Intent(getApplicationContext(), NewPostActivity.class));
                 finish();
             }
         });

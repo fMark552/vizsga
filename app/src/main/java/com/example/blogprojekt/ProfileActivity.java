@@ -10,13 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
-
-import java.util.Arrays;
-import java.util.Optional;
 
 public class ProfileActivity extends AppCompatActivity implements RequestTask.OutResponse {
     private BottomNavigationView botnav;
@@ -49,7 +45,7 @@ public class ProfileActivity extends AppCompatActivity implements RequestTask.Ou
                 case R.id.menu_profile:
                     return true;
                 case R.id.menu_settings:
-                    startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                    startActivity(new Intent(getApplicationContext(), NewPostActivity.class));
                     finish();
                     return true;
             }

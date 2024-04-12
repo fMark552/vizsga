@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,7 +52,7 @@ public class HomeActivity extends AppCompatActivity implements RequestTask.OutRe
                     finish();
                     return true;
                 case R.id.menu_settings:
-                    startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                    startActivity(new Intent(getApplicationContext(), NewPostActivity.class));
                     finish();
                     return true;
             }

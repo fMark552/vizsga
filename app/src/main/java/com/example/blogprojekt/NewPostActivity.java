@@ -17,18 +17,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Clock;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.Calendar;
 import java.util.Date;
 
-public class SettingsActivity extends AppCompatActivity implements RequestTask.OutResponse{
+public class NewPostActivity extends AppCompatActivity implements RequestTask.OutResponse{
     private BottomNavigationView botnav;
     private Button submitBtn;
     private Date timestamp;
@@ -41,7 +34,7 @@ public class SettingsActivity extends AppCompatActivity implements RequestTask.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_new_post);
         init();
         Log.d("IDCHECK: ",String.valueOf(id));
         botnav.setOnItemSelectedListener(item -> {
@@ -78,7 +71,7 @@ public class SettingsActivity extends AppCompatActivity implements RequestTask.O
                 } catch (JSONException e){
                     e.printStackTrace();
                 }
-                RequestTask task=new RequestTask(SettingsActivity.this,"postblog","POST",postString);
+                RequestTask task=new RequestTask(NewPostActivity.this,"postblog","POST",postString);
                 task.execute();
             }
         });
@@ -96,13 +89,13 @@ public class SettingsActivity extends AppCompatActivity implements RequestTask.O
     @Override
     public void response(Response response){
         if (response.getResponseCode()>=400){
-            Toast.makeText(SettingsActivity.this,"Unsuccesful post",Toast.LENGTH_SHORT).show();
+            Toast.makeText(NewPostActivity.this,"Unsuccesful post",Toast.LENGTH_SHORT).show();
             Log.d("onPostExecuteError:", response.getContent());
         }
         if (response.getResponseCode()==200){
             Log.d("onPostExecuteError:", response.getContent());
-            Toast.makeText(SettingsActivity.this,"Succesful post",Toast.LENGTH_SHORT).show();
-            Intent main = new Intent(SettingsActivity.this, HomeActivity.class);
+            Toast.makeText(NewPostActivity.this,"Succesful post",Toast.LENGTH_SHORT).show();
+            Intent main = new Intent(NewPostActivity.this, HomeActivity.class);
             startActivity(main);
             finish();
         }
