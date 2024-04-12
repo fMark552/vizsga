@@ -20,7 +20,9 @@ import org.json.JSONObject;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Clock;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Calendar;
@@ -61,23 +63,17 @@ public class SettingsActivity extends AppCompatActivity implements RequestTask.O
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String ido="2024-04-11 22:50:50";
-                SimpleDateFormat format = new SimpleDateFormat("'Date\n'dd-MM-yyyy '\n\nand\n\nTime\n'HH:mm:ss z");
-                try {
-                    date = format.parse(ido);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+                LocalDateTime lt=LocalDateTime.now();
+                Log.d("Idő",lt.toString());
                 timestamp= Calendar.getInstance().getTime();
                 String text=textET.getText().toString();
                 String postString="";
-
                 Log.d("ASD",timestamp.toString());
                 try {
                     postString=new JSONObject()
                             .put("userId",id)
                             .put("text",text)
-                            .put("timestamp",timestamp)
+                            .put("timestamp",lt)
                             .toString();
                 } catch (JSONException e){
                     e.printStackTrace();
@@ -94,12 +90,13 @@ public class SettingsActivity extends AppCompatActivity implements RequestTask.O
         submitBtn=findViewById(R.id.submitButton);
         textET=findViewById(R.id.edtInput);
         sh2=getSharedPreferences("Profile", Context.MODE_PRIVATE);
-        id=sh2.getInt("userid",1);
+        id=sh2.getInt("userid",0);
     }
 
     @Override
     public void response(Response response){
         if (response.getResponseCode()>=400){
+            Toast.makeText(SettingsActivity.this,"Unsuccesful post",Toast.LENGTH_SHORT).show();
             Log.d("onPostExecuteError:", response.getContent());
         }
         if (response.getResponseCode()==200){

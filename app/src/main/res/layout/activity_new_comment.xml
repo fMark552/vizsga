@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".NewCommentActivity">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/newpost_vector"
+        android:id="@+id/newcommentkepecske"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_below="@id/newcommentkepecske"
+        android:text="New Comment"
+        android:textSize="30dp"/>
+
+    <EditText
+        android:id="@+id/commentInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ide tudod vésni a témácskákat"
+        android:inputType="textCapSentences|textMultiLine"
+        android:lines="10"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/commentInput"
+        android:layout_centerHorizontal="true"
+        android:text="Submit"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:background="@color/lightblue"
+        android:backgroundTint="@color/lightblue"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:id="@+id/commentSubmitButton"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/commentSubmitButton"
+        android:id="@+id/errorTextView"
+        android:textColor="@color/red"
+        android:textAlignment="center"/>
+
+</RelativeLayout>

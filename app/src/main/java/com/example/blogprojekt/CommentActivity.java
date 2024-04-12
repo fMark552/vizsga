@@ -27,7 +27,6 @@ import java.util.List;
 
 public class CommentActivity extends AppCompatActivity implements RequestTask.OutResponse{
 
-    private EditText newcommentET;
     private Button backBtn;
     private Button newcommentBtn;
     private ListView commentLV;
@@ -42,6 +41,13 @@ public class CommentActivity extends AppCompatActivity implements RequestTask.Ou
         init();
         RequestTask task=new RequestTask(CommentActivity.this,"comments/"+blogId,"GET");
         task.execute();
+        newcommentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), NewCommentActivity.class));
+                finish();
+            }
+        });
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,7 +84,6 @@ public class CommentActivity extends AppCompatActivity implements RequestTask.Ou
     }
 
     public void init(){
-        newcommentET=findViewById(R.id.newcommentEditText);
         backBtn=findViewById(R.id.backButton);
         newcommentBtn=findViewById(R.id.newcommentButton);
         commentLV=findViewById(R.id.commentListView);
